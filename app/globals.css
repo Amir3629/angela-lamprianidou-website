@@ -1,0 +1,353 @@
+@import 'tailwindcss';
+
+/* Custom font imports */
+@font-face {
+  font-family: "FreeMono";
+  src: url("/fonts/FreeMono.woff2") format("woff2"),
+    url("/fonts/FreeMono.woff") format("woff"),
+    url("/fonts/FreeMono.ttf") format("truetype");
+}
+@font-face {
+  font-family: "FreeMono";
+  font-weight: bold;
+  src: url("/fonts/FreeMonoBold.woff2") format("woff2"),
+    url("/fonts/FreeMonoBold.woff") format("woff"),
+    url("/fonts/FreeMonoBold.ttf") format("truetype");
+}
+
+/* Base styles matching original */
+html, body {
+  background-color: black;
+  color: #ffffff;
+  font-family: FreeMono, "courier new", monospace;
+  letter-spacing: 0.23px;
+  line-height: 1.1;
+  font-size: 16px;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  outline: 0;
+}
+
+a:hover {
+  font-weight: normal;
+  color: #0c0;
+  border: none;
+}
+
+/* Standardized font classes */
+.website-font {
+  font-family: FreeMono, "courier new", monospace;
+  letter-spacing: 0.23px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.website-title {
+  font-family: FreeMono, "courier new", monospace;
+  font-weight: 400;
+  letter-spacing: 0.23px;
+  line-height: 1.1;
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
+.website-text {
+  font-family: FreeMono, "courier new", monospace;
+  letter-spacing: 0.23px;
+  line-height: 1.1;
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+.website-small {
+  font-family: FreeMono, "courier new", monospace;
+  letter-spacing: 0.23px;
+  line-height: 1.1;
+  color: #ffffff;
+  font-size: 1.1em;
+}
+
+/* Legacy font sizes - keeping for compatibility but updating */
+.bigger {
+  font-family: FreeMono, "courier new", monospace;
+  color: #fff;
+  font-size: 1.8em;
+  line-height: 1.1;
+}
+
+.big {
+  font-family: FreeMono, "courier new", monospace;
+  letter-spacing: 0.23px;
+  color: #fff;
+  font-size: 1.5em;
+  line-height: 1.1;
+}
+
+.normal {
+  font-family: FreeMono, "courier new", monospace;
+  color: #fff;
+  font-size: 1.3em;
+  line-height: 1.1;
+}
+
+.small {
+  font-family: FreeMono, "courier new", monospace;
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 1.1;
+}
+
+.smaller {
+  font-family: FreeMono, "courier new", monospace;
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1.1;
+}
+
+/* Special spacing classes */
+.thinsp {
+  font-size: 0.5em;
+}
+
+.normsp {
+  font-size: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  /* Ensure images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Better spacing for mobile */
+  .float-left, .float-right {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+  }
+  
+  /* Improve touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better text wrapping */
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    padding-left: 0px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    padding-left: 0px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    padding-left: 0px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 296px) {
+  body {
+    padding-left: 0px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 190px) {
+  body {
+    padding-left: 0px;
+    font-size: 9px;
+  }
+}
+
+/* Hide scrollbar for thumbnail gallery */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Font variation classes for comparison */
+/* Variation 1: 20% bigger font size */
+.font-variation-1 .website-title {
+  font-size: 1.8em; /* was 1.5em */
+}
+.font-variation-1 .website-text {
+  font-size: 1.44em; /* was 1.2em */
+}
+.font-variation-1 .website-small {
+  font-size: 1.32em; /* was 1.1em */
+}
+
+/* Variation 2: Bold/Thick text */
+.font-variation-2 .website-title {
+  font-weight: bold;
+}
+.font-variation-2 .website-text {
+  font-weight: bold;
+}
+.font-variation-2 .website-small {
+  font-weight: bold;
+}
+
+/* Variation 3: Bigger AND bolder */
+.font-variation-3 .website-title {
+  font-size: 1.8em; /* was 1.5em */
+  font-weight: bold;
+}
+.font-variation-3 .website-text {
+  font-size: 1.44em; /* was 1.2em */
+  font-weight: bold;
+}
+.font-variation-3 .website-small {
+  font-size: 1.32em; /* was 1.1em */
+  font-weight: bold;
+}
+
+/* Variation 4: Wider letter spacing */
+.font-variation-4 .website-title {
+  letter-spacing: 1.5px; /* was 0.23px */
+}
+.font-variation-4 .website-text {
+  letter-spacing: 1.5px; /* was 0.23px */
+}
+.font-variation-4 .website-small {
+  letter-spacing: 1.5px; /* was 0.23px */
+}
+
+/* Media screen size variations */
+/* Default screen is 500px on desktop, this makes it bigger */
+.media-screen-bigger .media-display-container {
+  width: 100%;
+  max-width: 800px; /* was 500px */
+}
+
+/* Even bigger screen for extra large display */
+.media-screen-largest .media-display-container {
+  width: 100%;
+  max-width: 650px; /* was 500px */
+}
+
+/* Different size for another variation */
+.media-screen-large .media-display-container {
+  width: 100%;
+  max-width: 900px; /* was 500px, for alihop */
+}
+
+/* Extra size variation for appointment */
+.media-screen-xlarge .media-display-container {
+  width: 100%;
+  max-width: 750px; /* for appointment on stage */
+}
+
+/* Additional screen size variations for comparison */
+.media-screen-small .media-display-container {
+  width: 100%;
+  max-width: 550px; /* +50px from default */
+}
+
+.media-screen-medium .media-display-container {
+  width: 100%;
+  max-width: 600px; /* +100px from default */
+}
+
+.media-screen-xl .media-display-container {
+  width: 100%;
+  max-width: 850px; /* +350px from default */
+}
+
+.media-screen-xxl .media-display-container {
+  width: 100%;
+  max-width: 950px; /* +450px from default */
+}
+
+/* Page-specific background overlays */
+.page-bg-overlay {
+  position: relative;
+}
+
+.page-bg-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Default 70% black overlay */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Black and white filter with overlay */
+.page-bg-bw::before {
+  background-color: rgba(0, 0, 0, 0.75); /* 75% black overlay for B&W */
+}
+
+.page-bg-bw {
+  filter: grayscale(100%);
+}
+
+/* Light overlay - 50% black */
+.page-bg-light-overlay::before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Medium overlay - 60% black */
+.page-bg-medium-overlay::before {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Dark overlay - 80% black */
+.page-bg-dark-overlay::before {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Ensure content stays above overlay */
+.page-bg-overlay > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Video screen size variations for separated layout */
+.video-screen-large .w-full.max-w-3xl {
+  max-width: 60rem; /* 960px instead of 768px */
+}
+
+.video-screen-xlarge .w-full.max-w-3xl {
+  max-width: 70rem; /* 1120px - very large */
+}
+
+.video-screen-huge .w-full.max-w-3xl {
+  max-width: 80rem; /* 1280px - huge */
+}

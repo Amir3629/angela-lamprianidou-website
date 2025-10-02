@@ -1,0 +1,255 @@
+/** include Font **/ /* Font is under GPL, more info: www.lamprianidou.com/Per4mer/2021/fonts/copyright-freefont.html */
+@font-face {
+	font-family: "FreeMono";
+	src: url("/Per4mer/2021/fonts/FreeMono.woff2") format("woff2"),
+		 url("/Per4mer/2021/fonts/FreeMono.woff") format("woff"),
+		 url("/Per4mer/2021/fonts/FreeMono.ttf") format("truetype");
+}
+@font-face {
+	font-family: "FreeMono";
+	font-weight: bold;
+	src: url("/Per4mer/2021/fonts/FreeMonoBold.woff2") format("woff2"),
+		 url("/Per4mer/2021/fonts/FreeMonoBold.woff") format("woff"),
+		 url("/Per4mer/2021/fonts/FreeMonoBold.ttf") format("truetype");
+}
+
+/** basic **/
+body, html {
+	background-color: black;
+	background-image: url(../piggs/chick09_bk.jpg);
+    color: #ffffff;
+	font-family: FreeMono, courier new, monospace;
+	letter-spacing: 0.23px;
+	line-height: 1.2;
+    font-size: 14px;
+	height: 100%; 
+	padding: 0px; 
+	margin: 0px;
+} 
+	 
+pre {
+	font-family: FreeMono, courier new, monospace;
+	letter-spacing: 0.23px;
+	line-height: 1.2;
+	word-wrap: break-word;      /* IE 5.5-7 */
+	white-space: pre-wrap;
+}
+
+/** Content/iframe **/
+.Content {
+	width: 100%; 
+	height: 100%;
+	overflow: hidden;
+}
+
+.Content iframe {
+	margin: 0px;
+	padding: 0px;
+	border: 0px; 
+	width: 100%;
+	height: 100%;
+}
+
+/** fontsize **/
+.bigger {
+	font-family: FreeMono, courier new, monospace;                                            
+	color: #fff;                                                          
+	font-size: 1.4em;
+}		 
+.big {
+	font-family: FreeMono, courier new, monospace;    
+	letter-spacing: 0.0px;                                        
+	color: #fff;                                                          
+	font-size: 1.2em;
+}	 	 	
+.normal {        
+	font-family: FreeMono, courier new, monospace;                                            
+	color: #fff;                                                
+    font-size: 1.1em;
+}
+.small {
+	font-family: FreeMono, courier new, monospace;                                            
+	color: #fff;                                                          
+	font-size: 1em;
+}
+.smaller {
+	font-family: FreeMono, courier new, monospace;                                            
+	color: #fff;                                                          
+	font-size: 0.8em;
+}
+
+/** images **/	 
+img {
+	border: none;
+}	 
+a img {
+	border: none;
+}
+	 	
+/** links **/
+a {
+	text-decoration: none;
+	color: #fff;
+	border: none;
+	outline: 0;
+}
+a:hover {
+	font-weight: normal;
+    color: #0c0;
+	border: none;
+}
+
+/** link tooltip/title **/
+.tooltip {
+	display: none;
+	position: absolute;
+	padding: 2px 8px 2px 8px;
+	margin-top: 8px;
+	margin-left: -32px;
+	font-weight: bold;
+	font-style: italic;
+	color: #fff;
+	background-color: rgba(26,26,26,0.7);
+	border: 2px solid #242;
+	border-radius: 2px;
+	z-index: 10000;
+}
+
+/** Container **/
+#TopContainer {
+	position: relative;
+	max-width: 638px;
+	text-align: left;
+}
+
+/** Container Title **/
+#TopContainerTitle {
+	position: relative;
+	max-width: 638px;
+	text-align: left;
+}
+#Titleframe {
+	border: 0px red solid; /* set 1px for diagnostic */
+	width: 90vw;
+}
+
+/** Pictures & Video - Container for unitegallery **/
+#ContentGallery {
+	margin-left: 0px;
+	margin-right: auto;
+	margin-top: 12px;
+	display: none;
+	z-index: 1;
+}
+
+/** Styling for unitegallery - data-description - text on hover **/
+.ug-gallery-wrapper .ug-textpanel-description{
+	background: rgba(21, 15, 31, 0.7);
+	text-align: left;	
+	color: white;
+	font-size: 14px;	
+	font-weight: bold;
+	font-style: italic;
+/*	font-variant: small-caps;
+	font-stretch: extra-expanded;	*/
+}
+
+/** Button Back normal **/
+.Backbutton {
+	position: absolute;
+	text-align: right;
+/*	top: 37px;	*/
+	top: 8px;
+	width: 99vw;
+	max-width: 757px;
+	z-index: 0;
+}
+
+/* Button Back when page scrolled, toggled by jscript on contentpage */ 
+#BackbuttonTop {
+	display: none;
+	position: fixed;
+	text-align: right;
+	font-weight: bold;                                                       
+	font-size: 1.1em;
+	top: -2px;
+	padding-top: 3px;
+	width: 99vw;
+	max-width: 759px;
+	z-index: 10;
+}
+
+#BackbuttTop {
+		color: rgba(255,255,255,1.0);
+}
+
+#BackbuttTop span {
+		background-color: rgba(0,0,0,0.4);
+}
+
+
+/** Button Back when page narrowed **/
+@media (max-width: 764px/*640px*/) {
+	.Backbutton {
+		position: fixed;
+		font-weight: bold;                                                       
+		font-size: 1.1em;
+/*		top: -23px;	*/
+		top: -2px;
+		padding-top: 3px;
+/*		right: -9px; */
+		width: 99vw;
+		z-index: 10;
+	}
+	.Backbutt {
+		background-color: rgba(0,0,0,0.4);
+	}
+}
+
+/** Content main Text **/
+#ContentDokument {
+	margin-top: 21px;
+	margin-left: 73px;
+	padding-bottom: 42px;
+	padding-right: 12px;
+}
+
+/** Content main Text when page narrowed **/
+@media (max-width: 764px/*640px*/) {
+	#ContentDokument {
+		margin-top: 21px;
+		margin-left: 28px;
+		padding-bottom: 12px;
+		padding-right: 12px;
+	}
+}
+
+/** Main Menu **/
+
+.Menu {
+    position: fixed;
+	background-color: rgba(0,0,0,0.4);
+    top: 0;
+	padding-left: 8px;
+	z-index: 10;
+	margin-top: 0px; 
+    margin-left: 5px;
+    overflow: hidden;
+}
+
+.Menu a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 1px 12px;
+    text-decoration: none; 
+	font-weight: bold; 
+}
+
+.Menu a:hover {
+    color: green;
+    text-decoration: none; 
+	font-weight: bold; 
+}
+
+

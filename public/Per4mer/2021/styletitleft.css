@@ -1,0 +1,35 @@
+/*** Spacing left edge ***/
+
+body {
+	padding-left: 70px;
+}
+
+@media (max-width: 500px) {
+    body {
+	padding-left: 39px;
+	}
+}
+
+@media (max-width: 360px) {
+    body {
+		padding-left: 39px;
+	}
+} 
+
+@media (max-width: 320px) {
+    body {
+		padding-left: 23px;
+	}
+} 
+
+@media (max-width: 296px) {
+    body {
+		padding-left: 8px;
+	}
+}
+
+@media (max-width: 190px) {
+    body {
+		padding-left: 0px;
+	}
+}

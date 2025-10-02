@@ -1,0 +1,23 @@
+/* set background picture */
+body {
+	background-image: url(/Per4mer/2021/piggs/main_bk21.jpg);
+	background-attachment: scroll;
+}
+@media (min-width: 1441px) {
+    body {
+		background-image: url(/Per4mer/2021/piggs/main_bk21.jpg);
+		background-attachment: scroll;
+		background-size: 100%;
+	}
+}
+
+/* set second background picture to fade */
+#Canvas {
+	background-image: url(/Per4mer/2021/piggs/chick09_bk21.jpg);
+}
+@media (min-width: 1441px) {
+	#Canvas {
+		background-image: url(/Per4mer/2021/piggs/chick09_bk21.jpg);
+		background-size: 100%;
+	}
+}
