@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import ConditionalFooter from "../components/ConditionalFooter"
 import "./globals.css"
+import "../styles/jana-vrana-design.css"
 
 export const metadata: Metadata = {
   title: "Angela Lamprianidou Choreographer & Per4mer",
@@ -16,8 +17,8 @@ export const metadata: Metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  userScalable: true,
 }
 
 export default function RootLayout({
@@ -27,6 +28,70 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <style dangerouslySetInnerHTML={{
+          __html: `
+                   #masonry-container {
+                     padding-left: 0px !important;
+                     padding-right: 0px !important;
+                     box-sizing: border-box !important;
+                     margin-left: 1px !important;
+                     width: 100% !important;
+                     max-width: none !important;
+                   }
+                   .itemList {
+                     padding-left: 0px !important;
+                     padding-right: 0px !important;
+                     box-sizing: border-box !important;
+                     margin-left: 1px !important;
+                     width: 100% !important;
+                     max-width: none !important;
+                   }
+                   .homepage-links {
+                     padding-left: 0px !important;
+                     padding-right: 0px !important;
+                     box-sizing: border-box !important;
+                     margin-left: 1px !important;
+                     width: 100% !important;
+                     max-width: none !important;
+                   }
+            .item {
+              width: 228px !important;
+              max-width: 228px !important;
+              padding: 0 !important;
+              border: 1px solid #000000 !important;
+            }
+            .item.item-showcase {
+              width: 228px !important;
+              max-width: 228px !important;
+              padding: 0 !important;
+              border: 1px solid #000000 !important;
+            }
+            body .item {
+              width: 228px !important;
+              max-width: 228px !important;
+              padding: 0 !important;
+              border: 1px solid #000000 !important;
+            }
+            html body .item {
+              width: 228px !important;
+              max-width: 228px !important;
+              padding: 0 !important;
+              border: 1px solid #000000 !important;
+            }
+            .item[style*="width"] {
+              width: 228px !important;
+              max-width: 228px !important;
+            }
+            .item.item-showcase[style*="width"] {
+              width: 228px !important;
+              max-width: 228px !important;
+            }
+          `
+        }} />
+      </head>
       <body className="font-mono">
         <Suspense fallback={null}>{children}</Suspense>
         <ConditionalFooter />
@@ -35,3 +100,4 @@ export default function RootLayout({
     </html>
   )
 }
+

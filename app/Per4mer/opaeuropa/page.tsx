@@ -1,102 +1,49 @@
+'use client';
+
 import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
 
 export default function OpaEuropaPage() {
   const opaEuropaMedia = [
     {
+      src: "https://www.youtube.com/watch?v=pM0JQHD2Epk",
+      alt: "Opa Europa YouTube Video",
+      type: "video" as const,
+      title: "Opa Europa YouTube Video"
+    },
+    {
       src: "https://vimeo.com/156945895",
-      alt: "Opa Europa performance video 1",
+      alt: "Opa Europa Vimeo Video",
       type: "video" as const,
-      title: "Opa Europa Performance Video 1"
+      title: "Opa Europa Vimeo Video"
     },
     {
-      src: "https://vimeo.com/21881790",
-      alt: "Opa Europa performance video 2",
-      type: "video" as const,
-      title: "Opa Europa Performance Video 2"
-    },
-    {
-      src: "https://vimeo.com/162344737",
-      alt: "Opa Europa performance video 3",
-      type: "video" as const,
-      title: "Opa Europa Performance Video 3"
-    },
-    {
-      src: "https://vimeo.com/158752221",
-      alt: "Opa Europa performance video 4",
-      type: "video" as const,
-      title: "Opa Europa Performance Video 4"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/OpaEuropa/opaeuropa3.jpg",
-      alt: "Opa Europa performance 1",
-      type: "image" as const,
-      title: "Opa Europa"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/OpaEuropa/opaeuropa4.jpg",
-      alt: "Opa Europa performance 2",
-      type: "image" as const,
-      title: "Opa Europa"
-    },
-    {
-      src: "/Erup.jpeg",
+      src: "/opa_europa_1.jpg",
       alt: "Opa Europa",
       type: "image" as const,
       title: "Opa Europa"
     },
     {
-      src: "/Erup3.jpeg",
-      alt: "Opa Europa",
+      src: "/opa_europa_2.jpg",
+      alt: "Tanz Tanz sonst sind wir verloren",
       type: "image" as const,
-      title: "Opa Europa"
+      title: "Tanz Tanz sonst sind wir verloren"
     },
     {
-      src: "/Opa-eru1.jpeg",
-      alt: "Opa Europa",
+      src: "/opa_europa_3.jpg",
+      alt: "Greek Mythology",
       type: "image" as const,
-      title: "Opa Europa"
+      title: "Greek Mythology"
     },
     {
-      src: "/europa.jpeg",
-      alt: "Opa Europa",
+      src: "/opa_europa_4.jpg",
+      alt: "Zeus and Europa",
       type: "image" as const,
-      title: "Opa Europa"
-    },
-    {
-      src: "/opa-eroupa-show.jpg",
-      alt: "Opa Europa show",
-      type: "image" as const,
-      title: "Opa Europa"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/OpaEuropa/opaeuropa5.jpg",
-      alt: "Opa Europa performance 3",
-      type: "image" as const,
-      title: "Opa Europa"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/OpaEuropa/opaeuropa6.jpg",
-      alt: "Opa Europa performance 4",
-      type: "image" as const,
-      title: "Opa Europa"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/OpaEuropa/opaeuropa7.jpg",
-      alt: "Opa Europa performance 5",
-      type: "image" as const,
-      title: "Opa Europa"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/OpaEuropa/opaeuropa8.jpg",
-      alt: "Opa Europa performance 6",
-      type: "image" as const,
-      title: "Opa Europa"
+      title: "Zeus and Europa"
     }
   ];
 
-  const description = `Opa Europa
-
-Tanz tanz sonst sind wir verloren 
+  const description = `Tanz Tanz sonst sind wir verloren
 
 She is Hellas. Choreographer Angela Lamprianidou moves between her 
 various identities (Spanish, German and Greek) and enters into different 
@@ -105,18 +52,18 @@ lived in Barcelona for the last 11 years. This combination of identities
 means she can flow between the three geographic and/or mental states. 
 
 Using Greek mythology and traditional Greek dance, she establishes a 
-dialogue between her biography and current politics. Us and the polis. 
+dialogue between her biography and current politics. Us and the polis.`;
 
-"Zeus comes along and steals Europa. If only this could happen today!" 
+  const additionalInfo = `"Zeus comes along and steals Europa. If only this could happen today!" 
 
 "The interviews and encounters between audience, guests, Zeus and Europa 
- are a meal both light and indigestible, so please make sure that you don't 
- eat, fuck or shit before the show!" 
+are a meal both light and indigestible, so please make sure that you don't 
+eat, fuck or shit before the show!" 
 
- Tanz, tanz oder wir sind verloren (dance, dance, or we are lost) - is 
- this all that we have left?`;
+Tanz, tanz oder wir sind verloren (dance, dance, or we are lost) - is 
+this all that we have left?"
 
-  const additionalInfo = `Choreography and Artistic Direction: Angela Lamprianidou 
+Choreography and Artistic Direction: Angela Lamprianidou 
 Interpretation: Paqiro Lopèz, Eli Ruiz Fernandez Guest, Angela Lamprianidou 
 Music: Dimitris Mitropanos, Melina Merkouri, Greek Music and Soul 
 & voice en off: Julia Koch 
@@ -128,27 +75,15 @@ stage min: variable, could be inside and outdoor performance, from 6x6 to 10x10,
 sound: 1 lavalier and 2 handheld micros, 3.5mm-stereo-mini-jack for computer`;
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black text-white website-font page-bg-overlay page-bg-bw font-variation-2 media-screen-medium" style={{
-      backgroundImage: `url('/europa.jpeg')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed'
-    }}>
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
       <MediaGallerySeparated
         mediaItems={opaEuropaMedia}
-        title={
-          <a
-            href="https://lamprianidou.com/Per4mer/OpaEuropa/Opa%20Europa%20by%20Angela%20Lamprianidou.pdf"
-            target="_blank"
-            className="text-green-400 hover:text-green-300 underline"
-          >
-            Opa Europa
-          </a>
-        }
+        title="Opa Europa"
         description={description}
         additionalInfo={additionalInfo}
-        photographer="antic teatre"
+        photographer="© Photos by antic teatre"
+        imageSize="xlarge"
       />
     </div>
   );

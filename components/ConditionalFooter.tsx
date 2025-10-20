@@ -6,10 +6,7 @@ import Footer from './Footer';
 export default function ConditionalFooter() {
   const pathname = usePathname();
   
-  // Don't show footer on homepage (root path)
-  if (pathname === '/') {
-    return null;
-  }
+  // Show footer on all pages
   
   return <Footer />;
 }

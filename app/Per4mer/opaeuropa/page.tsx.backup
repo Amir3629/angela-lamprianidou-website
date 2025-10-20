@@ -1,0 +1,77 @@
+'use client';
+
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
+
+export default function OpaEuropaPage() {
+  const opaEuropaMedia = [
+    {
+      src: "/opa_europa_1.jpg",
+      alt: "Opa Europa",
+      type: "image" as const,
+      title: "Opa Europa"
+    },
+    {
+      src: "/opa_europa_2.jpg",
+      alt: "Tanz Tanz sonst sind wir verloren",
+      type: "image" as const,
+      title: "Tanz Tanz sonst sind wir verloren"
+    },
+    {
+      src: "/opa_europa_3.jpg",
+      alt: "Greek Mythology",
+      type: "image" as const,
+      title: "Greek Mythology"
+    },
+    {
+      src: "/opa_europa_4.jpg",
+      alt: "Zeus and Europa",
+      type: "image" as const,
+      title: "Zeus and Europa"
+    },
+    {
+      src: "https://vimeo.com/manage/videos/156945895",
+      alt: "Opa Europa Video",
+      type: "video" as const,
+      title: "Opa Europa Video"
+    }
+  ];
+
+  const description = `Opa Europa
+Tanz Tanz sonst sind wir verloren
+
+She is Hellas. Choreographer Angela Lamprianidou moves between her various identities (Spanish, German and Greek) and enters into different realities. Angela was born in Germany, her origins are Greek, and she has lived in Barcelona for the last 11 years. This combination of identities means she can flow between the three geographic and/or mental states.
+
+Using Greek mythology and traditional Greek dance, she establishes a dialogue between her biography and current politics. Us and the polis.`;
+
+  const additionalInfo = `"Zeus comes along and steals Europa. If only this could happen today!"
+
+"The interviews and encounters between audience, guests, Zeus and Europa are a meal both light and indigestible, so please make sure that you don't eat, fuck or shit before the show!"
+
+Tanz, tanz oder wir sind verloren (dance, dance, or we are lost) - is this all that we have left?"
+
+Choreography and Artistic Direction: Angela Lamprianidou 
+Interpretation: Paqiro Lopèz, Eli Ruiz Fernandez Guest, Angela Lamprianidou 
+Music: Dimitris Mitropanos, Melina Merkouri, Greek Music and Soul 
+& voice en off: Julia Koch 
+Lights: Andres Acebes 
+Colaboradors: Antic Teatre Barcelona, Jakob Kremer production 2012 oktober 
+
+Technical needs: 
+stage min: variable, could be inside and outdoor performance, from 6x6 to 10x10, white linoleum 
+sound: 1 lavalier and 2 handheld micros, 3.5mm-stereo-mini-jack for computer`;
+
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      <MediaGallerySeparated
+        mediaItems={opaEuropaMedia}
+        title="Opa Europa"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer="© Photos by antic teatre"
+        imageSize="xlarge"
+      />
+    </div>
+  );
+}

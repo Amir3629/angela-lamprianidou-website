@@ -1,162 +1,132 @@
-import MediaGallery from "../../../components/MediaGallery";
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
 import Image from "next/image";
-
 export default function TanzhinTanzherPage() {
+  const sponsorLogos = [
+    {
+      src: "/Screenshot 2025-10-19 at 02.45.56.png",
+      alt: "BMBF Logo",
+      type: "image" as const,
+      title: "BMBF",
+      link: "https://web.archive.org/web/20151009013340/https://www.bmbf.de/de/kultur-macht-stark-buendnisse-fuer-bildung-958.html"
+    },
+    {
+      src: "/Screenshot 2025-10-19 at 02.45.46.png",
+      alt: "AKSB Logo", 
+      type: "image" as const,
+      title: "AKSB",
+      link: "https://www.bpb.de/die-bpb/foerderung/traegerdatenbank/184823/arbeitsgemeinschaft-katholisch-sozialer-bildungswerke-in-der-bundesrepublik-deutschland-e-v-aksb-e-v/"
+    }
+  ];
+
   const tanzhinMedia = [
     {
       src: "https://vimeo.com/279447734",
-      alt: "Tanz hin Tanz her video",
+      alt: "Tanz hin tanz her performance video",
       type: "video" as const,
-      title: "Tanz hin Tanz her"
+      title: "Tanz hin Tanz her Performance Video"
     },
     {
-      src: "/Tanz-hin-tanz-her.png",
-      alt: "Tanz hin tanz her - Performance Image",
+      src: "/tanz_hin_tanz_her_1.jpg",
+      alt: "Tanz hin tanz her performance 1",
       type: "image" as const,
       title: "Tanz hin Tanz her"
     },
     {
-      src: "/tanz-hin-tanz-her.jpeg",
-      alt: "Tanz hin tanz her - Performance Image 2",
+      src: "/tanz_hin_tanz_her_2.jpg",
+      alt: "Tanz hin tanz her performance 2",
       type: "image" as const,
       title: "Tanz hin Tanz her"
     },
     {
-      src: "/tanz-hh.jpeg",
-      alt: "Tanz hin tanz her - Performance Image 3",
-      type: "image" as const,
-      title: "Tanz hin Tanz her"
-    },
-    {
-      src: "/Tanz-Huh.jpeg",
-      alt: "Tanz hin tanz her",
-      type: "image" as const,
-      title: "Tanz hin Tanz her"
-    },
-    {
-      src: "/tanz-hun-tanz-her2.jpeg",
-      alt: "Tanz hin tanz her",
-      type: "image" as const,
-      title: "Tanz hin Tanz her"
-    },
-    {
-      src: "/tanz-hun-tanz-her2.jpeg",
-      alt: "Tanz hin tanz her - Performance Image 4",
+      src: "/tanz_hin_tanz_her_3.jpg",
+      alt: "Tanz hin tanz her performance 3",
       type: "image" as const,
       title: "Tanz hin Tanz her"
     }
   ];
 
-  const description = `Tanz hin Tanz her
-Dance back and forth, this way and that.
-A call for motion. A call for movement.
+  const description = `Tanz Hin und Her is a participatory dance performance that has been responding to the needs of a changing contemporary world since 2017. The audience itself becomes the performer—there is no right or wrong. 
+There is only one shared language: through gestures, eyes, bodies, and movement.
+In an unseated space, bodies expand freely. 
+Movements arise spontaneously, offered by members of the audience, and are taken up, mirrored, and transformed by the group. 
+A dynamic dialogue unfolds—silent yet deeply expressive—where individual impulses become collective choreography. Through this organic exchange, a sense of unity and presence emerges.`;
 
- www.ballhausost.de/tanz-hin-tanz-her-2
-
-An ensemble of professional dancers and a young 
-drop of refugees invites to dance and illuminates 
-the structures of integration: what does it mean 
-to integrate into a society or a situation?
-
-An empty, undisturbed hall becomes a meeting place.
-Nations, stories and people meet. The audience itself 
-gets an integration into the performance, 
-assumes predetermined movements of the dancers 
-and takes in own, which in turn is taken over.
-
-Integration takes place on the same level. The dance 
-functions as a universal language that does not have 
-to be explained. The body speaks for itself.`;
-
-  const additionalInfo = `Idea, Concept, Choreography ANGELA LAMPRIANIDOU 
-Creation Dancers ANDREA DORIAN RAMA, MARIA FERRARA, 
-IRINEU MARCOVECCHIO, SELINA THÜRING, ANGELA LAMPRIANIDOU 
-together with a group of young refugees 
-Visuals  CHEB KAMMERER, LARS KÜNSTLER
-
-
-A Production of DREI WÜNSCHE FREI 
-- STUDIO For culture and communication: http://www.wunschkollektiv.net/index.html 
-
-ANGELA LAMPRIANIDOU IN KOOPERATION 
-with the BALLHAUS OST. 
-
-Tanz hin Tanz her - Premiere 5-8.10.2017 Ballhaus Ost, Berlin
-
-Tanz hin tanz her had his Premiere 2017 at Ballhaus Ost in Berlin 
-and was invited to following festivals: 
-Festival Zell Am See 2023: https://www.schwelle-festival.com
-Schwelle Wien 2022: https://web.archive.org/web/20221004133729/https://schwelle.at/events/tanz-hin-tanz-her/
-Fete de la danse Yverdon Schweiz 2019: https://web.archive.org/web/20190812073002/https://fetedeladanse.ch/yverdon-les-bains/programme/2019/5/5/
-Saanfest Fest Oslo 2020, 
-Marameo Berlin 2018: https://web.archive.org/web/20190812081621/http://tanzraumberlin.de/TANZ-hin-TANZ-her--2506-1.html
-
-
-Funded by KULTUR MACHT STARK PLUS. BÜNDNISSE FÜR 
-BILDUNG DES BUNDESMINISTERIUMS FÜR BILDUNG UND FORSCHUNG (BMBF): https://web.archive.org/web/20151009013340/https://www.bmbf.de/de/kultur-macht-stark-buendnisse-fuer-bildung-958.html
-and the ARBEITSGEMEINSCHAFT KATHOLISCH-SOZIALER NETZWERKE (AKSB): http://www.bpb.de/partner/foerderung/184823/arbeitsgemeinschaft-katholisch-sozialer-bildungswerke-in-der-bundesrepublik-deutschland-e-v-aksb-e-v`;
+  const additionalInfo = (
+    <>
+      Tanz Hin und Her is a heart-opener—delicate and powerful at once.
+      <br />It touches, transforms, and evokes a deep sense of aliveness and connection. It invites us to remember a universal language that lies beyond words: the language of dance.
+      <br />The performance has been shown at renowned venues such as Marameo Berlin, 
+      <br />Ballhaus Ost Berlin, Willy-Brandt-Saal, Danse Yverdon (Switzerland), and was invited to the Saanafestival in Oslo.
+      <br />Whether in large spaces with three to four professional dancers, or in more intimate settings with two performers, Tanz Hin und Her remains a raw, unpolished diamond in the loud, fragmented noise of contemporary life.
+      <br /><br />
+      Dance back and forth, this way and that. 
+      <br />A call for motion. A call for movement.
+      <br />An ensemble of professional dancers and a young 
+      <br />drop of refugees invites to dance and illuminates 
+      <br />the structures of integration: what does it mean 
+      <br />to integrate into a society or a situation?
+      <br />An empty, undisturbed hall becomes a meeting place.
+      <br />Nations, stories and people meet. The audience itself 
+      <br />gets an integration into the performance, 
+      <br />assumes predetermined movements of the dancers 
+      <br />and takes in own, which in turn is taken over.
+      <br />Integration takes place on the same level. The dance 
+      <br />functions as a universal language that does not have 
+      <br />to be explained. The body speaks for itself.
+      <br /><br />
+      Idea, Concept, Choreography ANGELA LAMPRIANIDOU 
+      <br />Creation Dancers ANDREA DORIAN RAMA, MARIA FERRARA, 
+      <br />IRINEU MARCOVECCHIO, SELINA THÜRING, ANGELA LAMPRIANIDOU 
+      <br />together with a group of young refugees 
+      <br />Visuals CHEB KAMMERER, LARS KÜNSTLER
+      <br /><br /><br />
+      A Production of <a href="http://www.wunschkollektiv.net/index.html" target="_blank" rel="noopener noreferrer">DREI WÜNSCHE FREI - STUDIO For culture and communication</a>
+      <br /><br />
+      <a href="/187_tanzhin_tanzher_Plakat.pdf" target="_blank" rel="noopener noreferrer">ANGELA LAMPRIANIDOU IN KOOPERATION with the BALLHAUS OST.</a>
+      <br /><a href="https://www.ballhausost.de/tanz-hin-tanz-her-2" target="_blank" rel="noopener noreferrer">www.ballhausost.de/tanz-hin-tanz-her-2</a>
+      <br /><br />
+      <a href="/187_tanzhin_tanzher_Plakat.pdf" target="_blank" rel="noopener noreferrer">Tanz hin tanz her had his Premiere 2017 at Ballhaus Ost in Berlin</a>
+      <br />and was invited to following festivals: 
+      <br />Festival Zell Am See 2023, <a href="https://www.schwelle-festival.com/" target="_blank" rel="noopener noreferrer">Schwelle Wien 2022</a>, 
+      <br /><a href="https://web.archive.org/web/20190812073002/https:/fetedeladanse.ch/yverdon-les-bains/programme/2019/5/5/" target="_blank" rel="noopener noreferrer">Fete de la danse Yverdon Schweiz 2019</a>, 
+      <br />Saanfest Fest Oslo 2020, <a href="https://web.archive.org/web/20190812081621/http:/tanzraumberlin.de/TANZ-hin-TANZ-her--2506-1.html" target="_blank" rel="noopener noreferrer">Marameo Berlin 2018</a>
+      <br /><br />
+      Funded by <a href="https://web.archive.org/web/20151009013340/https:/www.bmbf.de/de/kultur-macht-stark-buendnisse-fuer-bildung-958.html" target="_blank" rel="noopener noreferrer">KULTUR MACHT STARK PLUS. BÜNDNISSE FÜR BILDUNG DES BUNDESMINISTERIUMS FÜR BILDUNG UND FORSCHUNG (BMBF)</a>
+      <br />and the <a href="https://www.bpb.de/die-bpb/foerderung/traegerdatenbank/184823/arbeitsgemeinschaft-katholisch-sozialer-bildungswerke-in-der-bundesrepublik-deutschland-e-v-aksb-e-v/" target="_blank" rel="noopener noreferrer">ARBEITSGEMEINSCHAFT KATHOLISCH-SOZIALER NETZWERKE (AKSB)</a>.
+    </>
+  );
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black text-white website-font media-screen-bigger page-bg-overlay page-bg-light-overlay font-variation-2" style={{
-      backgroundImage: `url('/tanz-hin-tanz-her.jpeg')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed'
-    }}>
-      <MediaGallery
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography relative">
+      <Header />
+      
+      <MediaGallerySeparated
         mediaItems={tanzhinMedia}
         title="Tanz hin Tanz her"
         description={description}
         additionalInfo={additionalInfo}
-        disableBackground={true}
+        photographer="© Photo by Julien Mudry"
+        imageSize="xlarge"
       />
       
-      {/* Logo Images Section */}
-      <div className="relative z-10 px-18 pb-10">
-        <div className="max-w-4xl">
-          <div className="flex justify-center items-center mt-8">
-            <a 
-              href="https://web.archive.org/web/20151009013340/https://www.bmbf.de/de/kultur-macht-stark-buendnisse-fuer-bildung-958.html" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-block transition-transform duration-300 hover:scale-110 mr-6"
-            >
-              <Image
-                src="/image copy 3.png"
-                alt="BMBF Logo"
-                width={240}
-                height={100}
-                className="object-contain h-[100px]"
-              />
-            </a>
-            <a 
-              href="http://www.bpb.de/partner/foerderung/184823/arbeitsgemeinschaft-katholisch-sozialer-bildungswerke-in-der-bundesrepublik-deutschland-e-v-aksb-e-v" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-block transition-transform duration-300 hover:scale-110"
-            >
-              <Image
-                src="/image copy 4.png"
-                alt="AKSB Logo"
-                width={240}
-                height={100}
-                className="object-contain h-[100px]"
-              />
-            </a>
-          </div>
-        </div>
-        
-        {/* Event PDF Link */}
-        <div className="mt-8 text-center">
-          <a
-            href="/END OF SUMMER CELEBRATION & OPEN STAGE – marameo Berlin e.V..pdf"
-            target="_blank"
-            className="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200"
+      {/* Fixed Sponsor Logos in Bottom Right */}
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+        {sponsorLogos.map((logo, index) => (
+          <a 
+            key={index}
+            href={logo.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block hover:opacity-100 transition-opacity duration-200"
           >
-            📄 Download Event Information (PDF)
+            <img 
+              src={logo.src} 
+              alt={logo.alt} 
+              className="w-32 h-auto opacity-80 hover:opacity-100"
+            />
           </a>
-        </div>
+        ))}
       </div>
     </div>
   );

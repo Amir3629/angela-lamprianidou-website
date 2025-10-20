@@ -1,53 +1,45 @@
-import MediaGallery from "../../../components/MediaGallery";
+'use client';
+
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
 
 export default function TonguePage() {
   const tongueMedia = [
     {
-      src: "https://lamprianidou.com/Per4mer/tongue/tongue11.jpg",
-      alt: "Tongue performance image 1",
-      type: "image" as const,
-      title: "Tongue Performance"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/tongue/tongue12.jpg",
-      alt: "Tongue performance image 2",
-      type: "image" as const,
-      title: "Tongue Performance"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/tongue/tongue13.jpg",
-      alt: "Tongue performance image 3",
-      type: "image" as const,
-      title: "Tongue Performance"
+      src: "https://vimeo.com/1124398099",
+      alt: "Tongue Video",
+      type: "video" as const,
+      title: "Tongue Video"
     },
     {
       src: "/Toung-2.jpeg",
-      alt: "Tongue",
+      alt: "Tongue performance 1",
       type: "image" as const,
       title: "Tongue Performance"
     },
     {
       src: "/toung.jpeg",
-      alt: "Tongue",
+      alt: "Tongue performance 2",
       type: "image" as const,
       title: "Tongue Performance"
     },
     {
       src: "/toung1.jpeg",
-      alt: "Tongue",
+      alt: "Tongue performance 3",
       type: "image" as const,
       title: "Tongue Performance"
     }
   ];
 
-  const tongueDescription = `Tongue
+  const description = `     Make it, break it 
+    Shake it, take it 
+    Lose it, speak it 
+    Feel it, hurt it 
+     Tongue me, 
+      baby
 
-Make it, break it 
-Shake it, take it 
-Lose it, speak it 
-Feel it, hurt it 
-Tongue me, 
-baby`;
+
+`;
 
   const additionalInfo = `Direction: Angela Lamprianidou 
 Choreography: A.Lamprianidou 
@@ -60,17 +52,20 @@ Lights: Ignasi Llorens
 Assistent of concept: Sakis Kyratzis 
 
 Technical Details: 
+
 Stage: normal with black wall or screen 
 Misc: 2 DVD, 1 CD, 3 wireless micros, 2 projectors 
 Duration: 60 min 
 
 performed 2008 at Teatre ovidi montllor en Barcelona 
 
+
 What is your tongue? Can you feel it? What do you do with it? 
 Where do you put it? How many do you know? Does it hurt? 
 ¿Qué es tu lengua? ¿La puedes sentir? ¿Qué haces con ella? 
 ¿Dónde la metes? ¿Cuántas conoces? ¿Te duele? 
 Tongue me baby tongue me baby. 
+
 
 1. What is your tongue? 
 ¿Qué es tu lengua? 
@@ -84,6 +79,7 @@ Es una parte de mi cuerpo. Es lo que mi madre me enseñó. Es lo que he aprendid
 en la calle, de mis vecinos, de mis hombres, de mis mujeres. Puede romper huesos. 
 Es roja, azul, negra, verde. Mi mente la controla. Es una parte de mi cuerpo. 
 
+
 2. Can you feel it? 
 ¿La puedes sentir? 
 Normally I don't. 
@@ -93,7 +89,7 @@ When I examine it, I do. When I'm swearing, I do. When you as me, I do. When I'm
 Normalmente no. 
 Cuando la muerdo si. Cuando la quemo si. Cuando me besan si. Cuando me la tiran si. 
 Normalmente no. 
-Cuando me examinan si. Cuando hablo mal, si. Cuando respondo, si. Cuando aprendo, si.
+Cuando me examinan si. Cuando hablo mal, si. Cuando respondo, si. Cuando aprendo, si. 
 
 
 3. What do you do with it? 
@@ -125,24 +121,19 @@ Yes. Sometimes. No. Sometimes. Yes
 Si. A veces. No. A veces. Si 
 
 
- This performance uses the language of dance to explore 
- the relationship between tongue and the body.`;
+This performance uses the language of dance to explore 
+the relationship between tongue and the body.`;
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black text-white website-font page-bg-overlay page-bg-medium-overlay font-variation-3 media-screen-small" style={{
-      backgroundImage: `url('/toung.jpeg')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed'
-    }}>
-      <MediaGallery
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      <MediaGallerySeparated
         mediaItems={tongueMedia}
         title="Tongue"
-        description={tongueDescription}
+        description={description}
         additionalInfo={additionalInfo}
-        photographer="M.Amueda"
-        disableBackground={true}
+        photographer="© Photos by LaRaitz"
+        imageSize="xlarge"
       />
     </div>
   );

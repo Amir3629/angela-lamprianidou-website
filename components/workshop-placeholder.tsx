@@ -15,16 +15,16 @@ const WorkshopPlaceholder = ({ title }: { title: string }) => {
         <div className="fixed top-0 left-0 w-full bg-black/50 z-20">
           <div className="flex justify-between items-center p-4 max-w-7xl mx-auto">
             <div className="flex space-x-4 text-sm font-bold">
-              <Link href="/" className="hover:text-green-400 transition-colors">
+              <Link href="/" className=" transition-colors">
                 Home
               </Link>
-              <Link href="/workshop" className="hover:text-green-400 transition-colors">
+              <Link href="/workshop" className=" transition-colors">
                 Workshops
               </Link>
             </div>
             <Link
               href="/workshop"
-              className="text-white hover:text-green-400 transition-colors text-sm bg-black/40 px-3 py-1 font-bold"
+              className="text-white  transition-colors text-sm bg-black/40 px-3 py-1 font-bold"
             >
               Back to Workshops
             </Link>

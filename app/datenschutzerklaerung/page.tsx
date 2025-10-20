@@ -33,8 +33,8 @@ export default function DatenschutzPage() {
               <p>Angela Lamprianidou</p>
               <p>Wartburgstrasse 47</p>
               <p>10823 Berlin, Deutschland</p>
-              <p>E-Mailadresse: <a href="mailto:angela@lamprianidou.com" className="text-green-400 hover:text-green-300 underline font-semibold">angela@lamprianidou.com</a></p>
-              <p>Link zum Impressum: <a href="/contact" className="text-green-400 hover:text-green-300 underline font-semibold">contact</a></p>
+              <p>E-Mailadresse: <a href="mailto:angela@lamprianidou.com" className="text-green-400  underline font-semibold">angela@lamprianidou.com</a></p>
+              <p>Link zum Impressum: <a href="/contact" className="text-green-400  underline font-semibold">contact</a></p>
             </div>
 
             <div>
@@ -148,7 +148,7 @@ export default function DatenschutzPage() {
                 Falls die Nutzer nicht möchten, dass Cookies auf ihrem Rechner gespeichert werden, werden sie gebeten die entsprechende Option in den Systemeinstellungen ihres Browsers zu deaktivieren. Gespeicherte Cookies können in den Systemeinstellungen des Browsers gelöscht werden. Der Ausschluss von Cookies kann zu Funktionseinschränkungen dieses Onlineangebotes führen.
               </p>
               <p className="mt-2">
-                Ein genereller Widerspruch gegen den Einsatz der zu Zwecken des Onlinemarketing eingesetzten Cookies kann bei einer Vielzahl der Dienste, vor allem im Fall des Trackings, über die US-amerikanische Seite <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">aboutads.info</a> oder die EU-Seite <a href="http://www.youronlinechoices.com/" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">youronlinechoices.com</a> erklärt werden. Des Weiteren kann die Speicherung von Cookies mittels deren Abschaltung in den Einstellungen des Browsers erreicht werden. Bitte beachten Sie, dass dann gegebenenfalls nicht alle Funktionen dieses Onlineangebotes genutzt werden können.
+                Ein genereller Widerspruch gegen den Einsatz der zu Zwecken des Onlinemarketing eingesetzten Cookies kann bei einer Vielzahl der Dienste, vor allem im Fall des Trackings, über die US-amerikanische Seite <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">aboutads.info</a> oder die EU-Seite <a href="http://www.youronlinechoices.com/" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">youronlinechoices.com</a> erklärt werden. Des Weiteren kann die Speicherung von Cookies mittels deren Abschaltung in den Einstellungen des Browsers erreicht werden. Bitte beachten Sie, dass dann gegebenenfalls nicht alle Funktionen dieses Onlineangebotes genutzt werden können.
               </p>
             </div>
 
@@ -221,7 +221,7 @@ export default function DatenschutzPage() {
                 Wir können die Videos der Plattform "Vimeo" des Anbieters Vimeo Inc., Attention: Legal Department, 555 West 18th Street New York, New York 10011, USA, einbinden.
               </p>
               <p className="mt-2">
-                Datenschutzerklärung: <a href="https://vimeo.com/privacy" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">vimeo.com/privacy</a>. Wir weisen darauf hin, dass Vimeo Google Analytics einsetzen kann und verweisen hierzu auf die Datenschutzerklärung (<a href="https://www.google.com/policies/privacy" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">google.com/policies/privacy</a>) sowie Opt-Out-Möglichkeiten für Google-Analytics (<a href="http://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">tools.google.com</a>) oder die Einstellungen von Google für die Datennutzung zu Marketingzwecken (<a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">adssettings.google.com</a>).
+                Datenschutzerklärung: <a href="https://vimeo.com/privacy" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">vimeo.com/privacy</a>. Wir weisen darauf hin, dass Vimeo Google Analytics einsetzen kann und verweisen hierzu auf die Datenschutzerklärung (<a href="https://www.google.com/policies/privacy" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">google.com/policies/privacy</a>) sowie Opt-Out-Möglichkeiten für Google-Analytics (<a href="http://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">tools.google.com</a>) oder die Einstellungen von Google für die Datennutzung zu Marketingzwecken (<a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">adssettings.google.com</a>).
               </p>
             </div>
 
@@ -231,13 +231,13 @@ export default function DatenschutzPage() {
                 Wir binden die Videos der Plattform "YouTube" des Anbieters Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA, ein.
               </p>
               <p className="mt-2">
-                Datenschutzerklärung: <a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">google.com/policies/privacy</a>, Opt-Out: <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">adssettings.google.com</a>.
+                Datenschutzerklärung: <a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">google.com/policies/privacy</a>, Opt-Out: <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">adssettings.google.com</a>.
               </p>
             </div>
 
             <div className="website-small mt-8 text-white/70">
               <p>
-                Erstellt mit <a href="https://datenschutz-generator.de" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline font-semibold">Datenschutz-Generator.de</a> von RA Dr. Thomas Schwenke
+                Erstellt mit <a href="https://datenschutz-generator.de" target="_blank" rel="noopener noreferrer" className="text-green-400  underline font-semibold">Datenschutz-Generator.de</a> von RA Dr. Thomas Schwenke
               </p>
             </div>
           </div>

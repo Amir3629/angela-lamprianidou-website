@@ -1,0 +1,159 @@
+import MediaGallerySeparated from "../../components/MediaGallerySeparated";
+import Header from "../../components/Header";
+export default function YouAreThePointPage() {
+  const youAreThePointMedia = [
+    {
+      src: "/youarethepoint1.jpeg",
+      alt: "You are the point 1",
+      type: "image" as const,
+      title: "You are the point"
+    },
+    {
+      src: "/youarethepoint2.jpeg",
+      alt: "You are the point 2",
+      type: "image" as const,
+      title: "You are the point"
+    },
+    {
+      src: "/youarethepoint3.jpeg",
+      alt: "You are the point 3",
+      type: "image" as const,
+      title: "You are the point"
+    },
+    {
+      src: "/youarethepoint4.jpeg",
+      alt: "You are the point 4",
+      type: "image" as const,
+      title: "You are the point"
+    }
+  ];
+
+  const description = `I guide you back into presence — into your body, your breath, your energy.
+Your jaw is the gateway: when it releases, your whole being opens.
+This work is about presence and energy.
+The breath work, PerSe, is the connecting thread between all of us.
+Usually 5 sessions are enough to feel real movement, and 10 sessions open the process fully.
+This is not about fixing you. It is about remembering.
+I support you in your own power.`;
+
+  const additionalInfo = `Read More – Manifesto: My Energy Shifting Journey
+
+I am a movement artist — a dancer who feels energy in every gesture, every breath, every pulse.
+Through choreography, I learned how subtle shifts create real change.
+
+My journey is a weave of different worlds:
+- The precision of dentistry, where I learned to read the body's signals
+- The freedom of dance, where I discovered how energy moves
+
+I am a movement artist — a dancer who feels energy in every gesture, every breath, every pulse.
+Through choreography, I learned how subtle shifts create real change, how presence flows through movement.
+
+My journey is a weave of different worlds:
+the precision of dentistry,
+the rhythm of dance,
+and the richness of living across cultures and languages.
+This mix shaped how I understand energy —
+how it moves inside, how it connects us,
+and how presence lives in the body, especially in the jaw.
+
+The jaw is the gateway to presence.
+It holds tension and unspoken emotions,
+and it shapes the entire body, the whole expression.
+When it releases, something deeper begins to flow: breath becomes free, the voice becomes clear, energy aligns.
+
+But what is energy?
+When I was young, I listened to the Beatles.
+They sang about something beyond music — they carried a vibration that could move an entire generation.
+They even asked, "Is happiness a warm gun?" My answer is no — not if war is still strong in the mind.
+Energy is the current of life itself. Yogis call it prana.
+You feel it when you notice the small gap between inhaling and exhaling — the space where everything is possible.
+That space is where presence lives.
+
+In 2011, I had a session with the energy intuitive Lee Harris.
+I was searching: Who am I? What is my offering?
+Artist — yes. Dentist — yes. But something more was waiting.
+Lee looked at me and said:
+"Angela, you are an energy healer. It's everywhere around you. Trust. It will come through you. You will specialize in something I cannot yet name. It will arrive through you."
+
+And it did.
+This method.
+This presence.
+This space.
+
+My work is called You Are the Point.
+Because presence begins with you — in your body, in your breath, in your awareness.
+The breath work I created, PerSe, is the connecting point between all of us.
+It is a clear, quiet presence that doesn't need to prove anything.
+
+I don't give you my power — I support you in your own.
+I open a safe space where your system can breathe again, regulate, and return to its natural rhythm.
+This is not about performing. It is about being.
+When your body softens, your voice flows, your creativity dances, your whole being shines.
+You don't just exist — you become alive, transmitting presence and truth.
+
+I believe the wars outside end when we end the war inside.
+Peace grows from within. When you breathe consciously, there is no resonance left for conflict.
+We all share the same air, yet how we breathe depends on our awareness.
+That is where freedom begins.
+
+So I invite you: step into this creative journey.
+There is nothing to fear.
+There is only this now — short, alive, luminous — between the in-breath and the out-breath.
+Accept that you are the point. Nobody else.
+
+I am deeply grateful to accompany your journey.
+People say about me:
+"Her smile is contagious. Her energy immediately shifts something in me. Her knowledge is vast — and her presence is sometimes unexpectedly powerful."
+I support you in your own power.
+
+With love,
+Angela
+
+„They say about me"
+
+„When I met Angela I had the necessity to release the jaw in order to sing better and I needed to be conscious of what happened in my mouth while speaking three languages. I was not conscious that I was also experiencing a big personal crisis. Of course I felt I was in a kind of trap but I could not understand from where I could start to help me.
+
+After 5 individual meetings with Angela, which I consider a quick and intense coworking, I found a new tone in my body; I was stronger; I could feel and free the connections between jaw and body parts like shoulders, pelvis, knees, feet; I could smile again and enjoy my tongue and teeth.
+
+Angela is amazing: she has a contagious energy, she is extremely strong and at the same time very light because of her creativity. She proposes a flow of concrete exercises mainly directed to the body but what happens is that they lead to a more general liberation of the interiority. The jaw is indeed the key to relax, to laugh, to take everything seriously but with fun, and finally is the door to let your truth come out.
+
+At the end of the personal training with Angela I was able for the very first time in my life to speak the truth to myself and to say it loud. Angela brought me to myself again, in a quick way, very productive. I guess if I had entered a therapy I could have needed months to face what I faced during the meetings with Angela.
+She made her job in a great way: of course she can! She knows how to connect jaw and other body parts and to connect interior core and external space; she knows how to let people feel alive again and she knows how to awake and show their interior power like it was a dance in the space.
+It meant a lot for me the work with Angela. Since then I changed my life...
+
+Francesca Tidoni
+Music Educator and Menstrual Coach „
+
+Angela spürt und sieht auf eine Art, wie nur wenige Menschen es können.
+Ob es nun Magie ist-es entzieht sich jedenfalls dem Wort und dem Verstand.
+Vielleicht wäre die Antwort des „kleinen Prinzen" genau die: „man sieht nur mit Herzen gut".
+Angelas Herz ist groß. Ihr Verstand messerscharf. Ihre Techniken wirkungsvoll.
+Eine Bereicherung für mich! A. Kröber Journalistin
+
+Testimonials
+
+"I experienced a profound shift in my body awareness and presence through Angela's work. Her approach to jaw and body release is transformative." - Sarah M.
+
+"Angela's workshops are not just about movement, but about reconnecting with your authentic self. Highly recommended for anyone seeking deeper embodiment." - Michael K.
+
+"The Art of Presence workshop opened new pathways for me both personally and professionally. Angela's method is truly unique." - Elena R.
+
+"Working with Angela has been life-changing. Her understanding of the body's energetic field is remarkable." - David L.
+
+"Angela creates a safe space for exploration and transformation. Her approach combines professionalism with genuine care." - Maria S.`;
+
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      <MediaGallerySeparated
+        mediaItems={youAreThePointMedia}
+        title="You are the point"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer=""
+        imageSize="xlarge"
+      />
+    </div>
+  );
+}

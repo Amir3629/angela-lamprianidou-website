@@ -1,0 +1,76 @@
+'use client';
+
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
+
+export default function SocialMovementPage() {
+  const socialMovementMedia = [
+    {
+      src: "/_DSC0089.jpeg",
+      alt: "Dance as a social movement",
+      type: "image" as const,
+      title: "Dance as a social movement"
+    },
+    {
+      src: "/_DSC0113.jpg",
+      alt: "Social Movement Performance",
+      type: "image" as const,
+      title: "Social Movement Performance"
+    },
+    {
+      src: "/dance as a social movement .jpg",
+      alt: "Community Dance",
+      type: "image" as const,
+      title: "Community Dance"
+    },
+    {
+      src: "/THTH !3.9.jpeg",
+      alt: "Breaking Boundaries",
+      type: "image" as const,
+      title: "Breaking Boundaries"
+    },
+    {
+      src: "https://player.vimeo.com/video/279447734",
+      alt: "Tanz Hin Tanz her Video",
+      type: "video" as const,
+      title: "Tanz Hin Tanz her Video"
+    }
+  ];
+
+  const description = `"Dance as a social movement" is a research
+project, that wants to go beyond the original
+attempts to remove the "fourth wall": it goes
+in the search of new techniques of
+improvisation and new methods of mediation
+to break the boundaries between ensemble
+and audience and to transform them. In this
+way, the stage can become a place of social
+movement and encounters.`;
+
+  const additionalInfo = `Angela Lamprianidou has already broken
+the boundaries between Performers and
+Audience in her Choreographic experience
+Tanz Hin Tanz her.
+Now she is interested in arrange dance
+movements as a "break" of work school,
+learning etc – in general institutions:
+A call for dance.
+
+Supported by Fonds Darstellende Künste with funds
+from the Federal Government Commissioner for Culture
+and Media within the program NEUSTART KULTUR`;
+
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      <MediaGallerySeparated
+        mediaItems={socialMovementMedia}
+        title="Dance as a social movement"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer="© Photos by LaRaitz"
+        imageSize="xlarge"
+      />
+    </div>
+  );
+}

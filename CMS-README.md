@@ -2,7 +2,7 @@
 
 ## 🎯 Overview
 
-This is a comprehensive Content Management System (CMS) designed specifically for Angela Lamprianidou's website. It provides an easy-to-use interface for managing all website content without requiring technical knowledge.
+This is a simplified Content Management System (CMS) designed specifically for Angela Lamprianidou's website. It provides an easy-to-use interface for managing media content (images and videos) without requiring technical knowledge.
 
 ## 🔐 Access
 
@@ -11,106 +11,48 @@ This is a comprehensive Content Management System (CMS) designed specifically fo
 
 ## 📋 Available Management Sections
 
-### 1. Gallery Management (`/admin/gallery`)
-- **Purpose:** Manage the gallery images displayed on the Gallery page
+### 1. Page Media Management (`/admin/edit/[pageId]`)
+- **Purpose:** Manage images and videos for specific pages
 - **Features:**
-  - Add new images with titles and descriptions
-  - Edit existing image information
-  - Reorder images (drag up/down)
-  - Delete images
-  - Preview images before saving
+  - Add new images and videos via URL
+  - Edit media titles and descriptions
+  - Remove media items
+  - Preview media before saving
+  - Support for both image and video content
 - **What Angela can change:**
-  - Add new performance photos
-  - Update image titles and descriptions
-  - Change the order of images
-  - Remove outdated images
+  - Add new performance photos and videos
+  - Update media titles and descriptions
+  - Remove outdated media
+  - Organize media for each page
 
-### 2. Performance Pages (`/admin/performances`)
-- **Purpose:** Manage all performance page content
+### 2. News & Dates Management (`/admin/edit/news-dates`)
+- **Purpose:** Manage news items, events, and announcements
 - **Features:**
-  - Add new performance pages
-  - Edit performance descriptions
-  - Manage performance images
-  - Add press reviews
-  - Link to PDF documents
+  - Add new news items with titles, dates, and locations
+  - Edit detailed descriptions and information
+  - Add links to external pages
   - Toggle active/inactive status
+  - Preview news items before saving
 - **What Angela can change:**
-  - Update performance descriptions
-  - Add new performance images
-  - Add press reviews and links
-  - Create new performance pages
-  - Update PDF links
-
-### 3. Contact & Bio (`/admin/contact-bio`)
-- **Purpose:** Manage personal information and biography
-- **Features:**
-  - Update contact information (phone, email, address)
-  - Edit biography text
-  - Manage education and achievements
-  - Update current work information
-  - Preview changes before saving
-- **What Angela can change:**
-  - Update contact details
-  - Modify biography text
-  - Add new achievements
-  - Update current work information
-
-### 4. Press & Reviews (`/admin/press`)
-- **Purpose:** Manage press coverage and reviews
-- **Features:**
-  - Add new press items (reviews, interviews, articles)
-  - Filter by type (review, interview, article, coverage)
-  - Manage multiple languages
-  - Add links to original articles
-  - Toggle active/inactive status
-- **What Angela can change:**
-  - Add new press coverage
-  - Update existing press items
-  - Organize by type and language
-  - Add links to full articles
-
-### 5. Background Images (`/admin/backgrounds`)
-- **Purpose:** Manage website background images
-- **Features:**
-  - Add new background images
-  - Assign images to specific pages
-  - Preview background images
-  - Manage image descriptions
-  - Toggle active/inactive status
-- **What Angela can change:**
-  - Upload new background images
-  - Change which pages use which backgrounds
-  - Update image descriptions
-
-### 6. Site Settings (`/admin/settings`)
-- **Purpose:** Manage global website settings
-- **Features:**
-  - Update site title and description
-  - Manage social media links
-  - Control navigation visibility
-  - Set maintenance mode
-  - Add analytics code
-- **What Angela can change:**
-  - Update site information
-  - Add social media links
-  - Show/hide navigation items
-  - Enable maintenance mode if needed
+  - Add upcoming performances and workshops
+  - Update event details and dates
+  - Add registration links
+  - Organize events by date
+  - Show/hide specific news items
 
 ## 🚀 Key Features
 
 ### User-Friendly Interface
 - Clean, intuitive design matching the website aesthetic
 - Easy-to-use forms with clear labels
-- Preview functionality for most content
+- Preview functionality for media content
 - Responsive design works on all devices
 
-### Content Management
-- **Gallery Images:** Easy drag-and-drop reordering
-- **Performance Pages:** Rich content editing with image management
-- **Contact Info:** Simple form-based updates
-- **Press Items:** Organized by type and language
-- **Backgrounds:** Visual management with page assignments
-- **Settings:** Comprehensive site configuration
+### Media Management
+- **Image Support:** Add images via URL
+- **Video Support:** Add videos via URL (YouTube, Vimeo, etc.)
+- **Media Metadata:** Set titles and alt text for accessibility
+- **Preview Mode:** See how media will appear before saving
 
 ### Security
 - Password-protected access
@@ -122,43 +64,46 @@ This is a comprehensive Content Management System (CMS) designed specifically fo
 ### Getting Started
 1. Navigate to `/admin`
 2. Enter password: `angela2024`
-3. Choose the section you want to manage
-4. Make your changes
-5. Click "Save" to apply changes
+3. Select a page to manage media for
+4. Add or edit media items
+5. Click "Save Changes" to apply
 
-### Adding New Content
-1. Click "Add New [Item]" button
-2. Fill in the required information
-3. Add optional details (images, links, etc.)
-4. Click "Save" to add the item
+### Adding New Media
+1. Click "Add Media" button
+2. Enter the image or video URL
+3. Select the media type (Image or Video)
+4. Add a title and alt text
+5. Click "Save Changes"
 
-### Editing Existing Content
-1. Find the item you want to edit
-2. Click the "Edit" button
-3. Make your changes
-4. Click "Save" to update
+### Editing Existing Media
+1. Find the media item you want to edit
+2. Update the URL, title, or alt text
+3. Click "Save Changes"
 
-### Deleting Content
-1. Find the item you want to delete
-2. Click the "Delete" button
-3. Confirm the deletion
+### Removing Media
+1. Find the media item you want to remove
+2. Click the "Remove" button
+3. Click "Save Changes"
+
+### Managing News & Dates
+1. Go to the News & Dates page in the admin panel
+2. Click "Add News Item" to create a new event
+3. Fill in the title, date, location, and descriptions
+4. Add optional links for registration or more information
+5. Toggle active/inactive status to show/hide items
+6. Click "Save Changes" to apply updates
 
 ## 🎨 Content Guidelines
 
-### Images
-- **Gallery Images:** Use high-quality performance photos
-- **Background Images:** Use images that work well as backgrounds
-- **Performance Images:** Use images that represent the specific performance
+### Media URLs
+- **Images:** Use direct image URLs (e.g., from your website, Google Drive, etc.)
+- **Videos:** Use YouTube or Vimeo URLs for best compatibility
+- **File Formats:** JPG, PNG for images; MP4, WebM for videos
 
-### Text Content
-- **Performance Descriptions:** Write engaging descriptions that capture the essence of each piece
-- **Biography:** Keep personal information current and accurate
-- **Press Items:** Include relevant quotes or summaries
-
-### Organization
-- **Gallery:** Order images to tell a story or show progression
-- **Performances:** Keep active performances at the top
-- **Press:** Organize by date or importance
+### Media Organization
+- **Titles:** Use descriptive titles for each media item
+- **Alt Text:** Provide meaningful descriptions for accessibility
+- **Order:** Arrange media to tell your story effectively
 
 ## 🔧 Technical Notes
 
@@ -166,12 +111,7 @@ This is a comprehensive Content Management System (CMS) designed specifically fo
 ```
 /app/admin/
 ├── page.tsx                 # Main admin dashboard
-├── gallery/page.tsx         # Gallery management
-├── performances/page.tsx    # Performance management
-├── contact-bio/page.tsx     # Contact & bio management
-├── press/page.tsx          # Press management
-├── backgrounds/page.tsx    # Background management
-└── settings/page.tsx       # Site settings
+└── edit/[pageId]/page.tsx   # Media management for specific pages
 ```
 
 ### Data Storage
@@ -189,6 +129,7 @@ This is a comprehensive Content Management System (CMS) designed specifically fo
 ### Planned Features
 - **File Upload:** Direct image upload instead of URL input
 - **Database Integration:** Persistent data storage
+- **Media Optimization:** Automatic image compression and optimization
 - **User Management:** Multiple admin users
 - **Backup System:** Automatic content backups
 - **Version History:** Track content changes

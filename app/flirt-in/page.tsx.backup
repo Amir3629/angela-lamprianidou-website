@@ -1,0 +1,41 @@
+import MediaGallerySeparated from "../../components/MediaGallerySeparated";
+import Header from "../../components/Header";
+export default function FlirtInPage() {
+  const flirtInMedia = [
+    {
+      src: "/5802454E-E612-49E6-A7FB-604B1C24DD62.jpg",
+      alt: "Flirt In Workshop 1",
+      type: "image" as const,
+      title: "Flirt In"
+    },
+    {
+      src: "/77DC06AF-B33F-432B-8BBC-BF1652D476B4.jpg",
+      alt: "Flirt In Workshop 2",
+      type: "image" as const,
+      title: "Flirt In"
+    }
+  ];
+
+  const description = `When was the last time you flirted — not just with words, but with silence, with stillness, with the space between? Flirt In is a playful, performative workshop — a sensual laboratory of communication and body language. A space to explore, together: How do you flirt? Do you flirt at all? Or are we all flirting, all the time — without even knowing it? We play. We arrive. We observe, experiment, transform. We flirt without words — standing, walking, with a glance, a tilt of the head, the flick of hair. We flirt with language — gently, boldly, teasing, whispering. Vertically. Horizontally. Truthfully. Fictionally. What does it mean to move closer — without crossing a line? How much distance does desire need? And what does a "yes" sound like — without a single word?`;
+
+  const additionalInfo = `Flirt In is a space for curiosity, for play, for deep connection.
+For anyone who wants to sharpen their senses, awaken their body's intelligence —
+and (re)discover the delicious art of flirting.
+
+This Laboratory of Flirting can be experienced as a full three-day workshop — or a one-day playful immersion.`;
+
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      <MediaGallerySeparated
+        mediaItems={flirtInMedia}
+        title="Flirt In"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer=""
+        imageSize="xlarge"
+      />
+    </div>
+  );
+}

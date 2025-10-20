@@ -1,0 +1,90 @@
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
+import Image from "next/image";
+export default function TanzhinTanzherPage() {
+  const tanzhinMedia = [
+    {
+      src: "https://vimeo.com/279447734",
+      alt: "Tanz hin tanz her performance video",
+      type: "video" as const,
+      title: "Tanz hin Tanz her Performance Video"
+    },
+    {
+      src: "/tanz_hin_tanz_her_1.jpg",
+      alt: "Tanz hin tanz her performance 1",
+      type: "image" as const,
+      title: "Tanz hin Tanz her"
+    },
+    {
+      src: "/tanz_hin_tanz_her_2.jpg",
+      alt: "Tanz hin tanz her performance 2",
+      type: "image" as const,
+      title: "Tanz hin Tanz her"
+    },
+    {
+      src: "/tanz_hin_tanz_her_3.jpg",
+      alt: "Tanz hin tanz her performance 3",
+      type: "image" as const,
+      title: "Tanz hin Tanz her"
+    }
+  ];
+
+  const description = `Dance back and forth, this way and that.
+A call for motion. A call for movement.
+
+ www.ballhausost.de/tanz-hin-tanz-her-2
+
+An ensemble of professional dancers and a young 
+drop of refugees invites to dance and illuminates 
+the structures of integration: what does it mean 
+to integrate into a society or a situation?
+
+An empty, undisturbed hall becomes a meeting place.
+Nations, stories and people meet. The audience itself 
+gets an integration into the performance, 
+assumes predetermined movements of the dancers 
+and takes in own, which in turn is taken over.
+
+Integration takes place on the same level. The dance 
+functions as a universal language that does not have 
+to be explained. The body speaks for itself.`;
+
+  const additionalInfo = `Idea, Concept, Choreography ANGELA LAMPRIANIDOU
+Creation Dancers ANDREA DORIAN RAMA, MARIA FERRARA,
+IRINEU MARCOVECCHIO, SELINA THÜRING, ANGELA LAMPRIANIDOU
+together with a group of young refugees
+Visuals CHEB KAMMERER, LARS KÜNSTLER
+A Production of DREI WÜNSCHE FREI - STUDIO For culture and communication: wunschkollektiv.net
+ANGELA LAMPRIANIDOU IN KOOPERATION with the BALLHAUS OST.
+Tanz hin Tanz her - Premiere 5-8.10.2017 Ballhaus Ost, Berlin
+Tanz hin tanz her had his Premiere 2017 at Ballhaus Ost in Berlin and was invited to following festivals:
+Festival Zell Am See 2023: schwelle-festival.com
+Schwelle Wien 2022: schwelle.at
+Fete de la danse Yverdon Schweiz 2019: fetedeladanse.ch
+Saanfest Fest Oslo 2020: lamprianidou.com
+Marameo Berlin 2018: tanzraumberlin.de
+
+Funded by KULTUR MACHT STARK PLUS. BÜNDNISSE FÜR BILDUNG DES BUNDESMINISTERIUMS FÜR BILDUNG UND FORSCHUNG (BMBF): bmbf.de
+and the ARBEITSGEMEINSCHAFT KATHOLISCH-SOZIALER NETZWERKE (AKSB): bpb.de`;
+
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      <MediaGallerySeparated
+        mediaItems={tanzhinMedia}
+        title="Tanz hin Tanz her"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer="© Photo by Julien Mudry"
+        imageSize="xlarge"
+      />
+    </div>
+  );
+}
+
+
+
+
+
+

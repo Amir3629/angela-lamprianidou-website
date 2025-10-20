@@ -1,0 +1,151 @@
+'use client';
+
+import Header from "../../components/Header";
+
+export default function NewsDatesPage() {
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      <div className="pt-24 px-4 md:px-18 pb-10">
+        <h1 className="website-title mb-8 mt-24 text-black">
+          News & Dates
+        </h1>
+        
+        <div className="space-y-8">
+          {/* Regular Sessions */}
+          <div>
+            <h2 className="website-text text-xl font-semibold mb-4 text-black">
+              Regular Sessions
+            </h2>
+            <div className="space-y-4">
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="website-text font-medium text-black mb-2">
+                  Every Monday 12-17:00h 1:1 Sessions
+                </h3>
+                <p className="website-text text-gray-700 mb-2">
+                  Holzmarkt 25, at IKSK
+                </p>
+                <a 
+                  href="https://www.iksk-berlin.de/jawrelease" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600  transition-colors"
+                >
+                  iksk-berlin.de/jawrelease
+                </a>
+              </div>
+              
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="website-text font-medium text-black mb-2">
+                  Dance expression Mondays 10-11:30
+                </h3>
+                <p className="website-text text-gray-700 mb-2">
+                  IKSK holzmarkt 25
+                </p>
+                <a 
+                  href="https://www.iksk-berlin.de/dance-improv-angela" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600  transition-colors"
+                >
+                  iksk-berlin.de/dance-improv-angela
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Upcoming Workshops */}
+          <div>
+            <h2 className="website-text text-xl font-semibold mb-4 text-black">
+              Upcoming Workshops
+            </h2>
+            <div className="space-y-4">
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="website-text font-medium text-black mb-2">
+                  Jaw and Body Release
+                </h3>
+                <p className="website-text text-gray-700 mb-2">
+                  9.10.2025 Holzmarkt 25 at IKSK<br />
+                  16-18:00h<br />
+                  and 12.10.25 14-17:00h
+                </p>
+                <a 
+                  href="https://www.iksk-berlin.de/jaw-release-group" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600  transition-colors"
+                >
+                  iksk-berlin.de/jaw-release-group
+                </a>
+              </div>
+              
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="website-text font-medium text-black mb-2">
+                  Flirt In Experience
+                </h3>
+                <p className="website-text text-gray-700 mb-2">
+                  18.10.25 20-23:00 pm<br />
+                  IKSK Holzmarkt 25
+                </p>
+                <a 
+                  href="https://www.iksk-berlin.de/flirt-in" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600  transition-colors"
+                >
+                  iksk-berlin.de/flirt-in
+                </a>
+              </div>
+              
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="website-text font-medium text-black mb-2">
+                  Tanz Hin Tanz her Participative Performance
+                </h3>
+                <p className="website-text text-gray-700 mb-2">
+                  26.10.2025 at Willy Brand Saal<br />
+                  18-19:30 pm<br />
+                  John F Kennedy Platz Rathaus Schöneberg
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* International Sessions */}
+          <div>
+            <h2 className="website-text text-xl font-semibold mb-4 text-black">
+              International Sessions
+            </h2>
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <h3 className="website-text font-medium text-black mb-2">
+                November and December
+              </h3>
+              <p className="website-text text-gray-700">
+                Online Sessions and Present Sessions and Workshops in Athens Greece.<br />
+                Please be open to reach out for more Information.
+              </p>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h2 className="website-text text-xl font-semibold mb-4 text-black">
+              Contact
+            </h2>
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <p className="website-text text-gray-700">
+                For more information and bookings, please contact:<br />
+                <a 
+                  href="mailto:angelabrillante@gmail.com" 
+                  className="text-blue-600  transition-colors"
+                >
+                  angelabrillante@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

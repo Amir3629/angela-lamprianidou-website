@@ -1,90 +1,36 @@
-import Link from "next/link";
-import Image from "next/image";
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
 import Header from "../../../components/Header";
-
 export default function Shortcuts08Page() {
+  const shortcutsMedia = [
+    {
+      src: "/shortcuts11.png",
+      alt: "Shortcuts performance",
+      type: "image" as const,
+      title: "Shortcuts"
+    }
+  ];
+
+  const description = `Waiting for the future makes us remember the past, we remember waiting for the future. (B.Pascal) From this point of view the artist asks herself, where are the lived moments, the moments that constitute the past. Our memories are our lived moments, even though the happiness based on Pascal doesn't exist, they are those moments that allow us to explore the material happiness of the flesh, even though they only last 3 seconds.
+
+Parting from this phrase that the present lasts 3 seconds, Angela Lamprianidou puts together the different short cut sequences full of memories and experiments of the present in the particular reflexion of Being Here and Now.
+
+The dancer starts with a pair of showings in form of a literary voyage.`;
+
+  const additionalInfo = `Production: Work in progress
+Choreography& Dance: A.Lamprianidou
+Lights: Ignasi Llorens
+Music: Paul Rose (institut fatima)
+performed 5th November 2008 at Casa Elizalde Barcelona
+and 2006 at Schwankhalle/Bremen`;
+
   return (
-    <div 
-      className="min-h-screen relative overflow-hidden bg-black text-white website-font"
-    >
-      <div
-        className="absolute inset-0 bg-no-repeat"
-        style={{
-          backgroundImage: `url('/entire_website_background.jpg')`,
-          backgroundSize: '100% auto',
-          backgroundPosition: 'top center',
-        }}
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />      <MediaGallerySeparated
+        mediaItems={shortcutsMedia}
+        title="Shortcuts"
+        description={description}
+        additionalInfo={additionalInfo}
       />
-      
-      {/* Dynamic Header */}
-      <Header />
-
-      <div className="relative z-10 p-8 md:p-12 pt-32">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl font-bold mb-8">short cuts</h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            <div className="md:col-span-2">
-              <pre className="whitespace-pre-wrap text-sm leading-relaxed text-white/90">
-"Short cuts" is a performance that explores the concept of taking 
-alternative routes and finding new pathways through movement and 
-choreography. The work was performed at the Bremen Schwankhalle 
-as part of the OUTNOW! Festival.
-
-The piece investigates the idea of shortcuts in both physical and 
-conceptual terms, questioning whether there are always faster or 
-more direct ways to reach our goals, and what we might miss along 
-the way.
-
-Choreography: Angela Lamprianidou
-Performance: Angela Lamprianidou
-Location: Bremen Schwankhalle
-Festival: OUTNOW! Festival
-Year: 2008
-
-This work represents an exploration of efficiency, alternative 
-routes, and the value of the journey versus the destination.
-              </pre>
-
-              <div className="mt-6">
-                <h3 className="text-lg font-bold text-green-400 mb-2">Carlos Murias:</h3>
-                <blockquote className="text-sm text-white/90 italic">
-                  "A perplex performance before its perplexities"
-                </blockquote>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="text-center">
-                <p className="text-sm text-white/70">
-                  An exploration of alternative routes and pathways 
-                  through movement and choreography.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-sm font-bold mb-2">Key Themes:</h3>
-                <ul className="text-xs text-white/80 space-y-1">
-                  <li>• Alternative routes</li>
-                  <li>• Efficiency vs. experience</li>
-                  <li>• Journey vs. destination</li>
-                  <li>• Perplexity and complexity</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-sm font-bold mb-2">Performance Details:</h3>
-                <ul className="text-xs text-white/80 space-y-1">
-                  <li>• Bremen Schwankhalle</li>
-                  <li>• OUTNOW! Festival</li>
-                  <li>• 2008</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   );
 }

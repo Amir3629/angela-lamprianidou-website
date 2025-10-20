@@ -7,12 +7,14 @@ export const convertUrlsToLinks = (text: string | React.ReactNode) => {
     return text;
   }
   
-  // Enhanced regex to catch URLs, email addresses, and PDF files, excluding trailing punctuation
-  const urlRegex = /(https?:\/\/[^\s\)]+|www\.[^\s\)]+|player\.vimeo\.com[^\s\)]*|vimeo\.com[^\s\)]*|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\/.*?\.pdf|\/archive\/[^\s\)]+)/g;
+  // Enhanced regex to catch URLs, bare domains, email addresses, and PDF files, excluding trailing punctuation
+  const urlRegex = /(https?:\/\/[^\s\)]+|www\.[^\s\)]+|(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s\)]*)?|player\.vimeo\.com[^\s\)]*|vimeo\.com[^\s\)]*|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\/.*?\.pdf|\/archive\/[^\s\)]+)/g;
   const parts = text.split(urlRegex);
+  // Use a NON-global regex for testing individual parts to avoid lastIndex issues with /g
+  const urlTestRegex = new RegExp(urlRegex.source);
   
   return parts.map((part, index) => {
-    if (urlRegex.test(part)) {
+    if (urlTestRegex.test(part)) {
       let href = part;
       let displayText = part;
       
@@ -20,8 +22,8 @@ export const convertUrlsToLinks = (text: string | React.ReactNode) => {
         // It's an email address
         href = `mailto:${part}`;
       } else if (part.endsWith('.pdf')) {
-        // It's a PDF file - use as is (relative path)
-        href = part;
+        // It's a PDF file - ensure absolute URLs keep protocol; relative paths remain as-is
+        href = part.startsWith('http') || part.startsWith('/') ? part : `https://${part}`;
       } else if (part.startsWith('/archive/')) {
         // It's an internal archive path - use as is
         href = part;
@@ -71,7 +73,7 @@ export const convertUrlsToLinks = (text: string | React.ReactNode) => {
           href={href}
           target={part.includes('@') || part.startsWith('/archive/') ? '_self' : '_blank'}
           rel={part.includes('@') || part.startsWith('/archive/') ? '' : 'noopener noreferrer'}
-          className="text-green-400 hover:text-green-300 underline"
+          className="text-green-400  underline"
           title={part} // Show full URL on hover
         >
           {displayText}

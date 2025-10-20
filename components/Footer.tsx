@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-gray-800 py-8 px-6 md:px-24">
-      <div className="flex flex-col items-center space-y-6">
+    <footer className="bg-black border-t border-gray-800 py-4 px-6 md:px-24">
+      <div className="flex flex-col items-center space-y-4">
         {/* Social Media Icons */}
         <div className="flex items-center space-x-8">
           {/* Instagram */}
@@ -13,11 +13,11 @@ export default function Footer() {
             href="https://www.instagram.com/angela_lamprianidou"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center w-12 h-12 bg-gray-900 hover:bg-gray-800 rounded-full transition-all duration-300 hover:scale-110"
+            className="group flex items-center justify-center w-12 h-12 bg-gray-900  rounded-full transition-all duration-300 hover:scale-110"
             aria-label="Instagram"
           >
             <svg
-              className="w-6 h-6 text-white group-hover:text-green-400 transition-colors"
+              className="w-6 h-6 text-white  transition-colors"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -30,11 +30,11 @@ export default function Footer() {
             href="https://www.youtube.com/@angelalamprianidou21"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center w-12 h-12 bg-gray-900 hover:bg-gray-800 rounded-full transition-all duration-300 hover:scale-110"
+            className="group flex items-center justify-center w-12 h-12 bg-gray-900  rounded-full transition-all duration-300 hover:scale-110"
             aria-label="YouTube"
           >
             <svg
-              className="w-6 h-6 text-white group-hover:text-green-400 transition-colors"
+              className="w-6 h-6 text-white  transition-colors"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -47,11 +47,11 @@ export default function Footer() {
             href="https://vimeo.com/lamprianidou"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center w-12 h-12 bg-gray-900 hover:bg-gray-800 rounded-full transition-all duration-300 hover:scale-110"
+            className="group flex items-center justify-center w-12 h-12 bg-gray-900  rounded-full transition-all duration-300 hover:scale-110"
             aria-label="Vimeo"
           >
             <svg
-              className="w-6 h-6 text-white group-hover:text-green-400 transition-colors"
+              className="w-6 h-6 text-white  transition-colors"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -61,10 +61,11 @@ export default function Footer() {
         </div>
 
         {/* Copyright Text */}
-        <div className="text-center">
-          <Link href="/contact" className="text-gray-400 hover:text-green-400 transition-colors text-xs">
-            © 2024 Angela Lamprianidou. All rights reserved, including videos.
+        <div className="text-center flex flex-col items-center">
+          <Link href="/contact" className="text-white hover:text-green-600 hover:scale-110 hover:font-semibold transition-all duration-300 text-xs inline-block mb-1" style={{fontSize: '10px'}}>
+            © 2025 Angela Lamprianidou. All rights reserved.
           </Link>
+          <span className="text-white" style={{fontSize: '10px'}}>Website by Amir Firoozi</span>
         </div>
       </div>
     </footer>

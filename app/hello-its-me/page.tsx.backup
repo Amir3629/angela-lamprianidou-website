@@ -1,0 +1,59 @@
+import MediaGallerySeparated from "../../components/MediaGallerySeparated";
+import Header from "../../components/Header";
+
+export default function HelloItsMePage() {
+  const helloItsMeMedia = [
+    {
+      src: "/IMG_7756.jpeg",
+      alt: "Hello it's me 1",
+      type: "image" as const,
+      title: "Hello it's me"
+    },
+    {
+      src: "/IMG_7757.jpeg",
+      alt: "Hello it's me 2",
+      type: "image" as const,
+      title: "Hello it's me"
+    },
+    {
+      src: "/IMG_7758.jpeg",
+      alt: "Hello it's me 3",
+      type: "image" as const,
+      title: "Hello it's me"
+    },
+    {
+      src: "/IMG_7759.jpeg",
+      alt: "Hello it's me 4",
+      type: "image" as const,
+      title: "Hello it's me"
+    }
+  ];
+
+  const description = `"Hello, It's Me" (ta panta rhei) explores the question of how seniors are perceived in our society. In a cross-generational ensemble, people over the age of 70 collaborate to artistically express their experiences and emotions. Under the direction of Angela Lamprianidou, a piece is created that presents the older body as an equally valuable and important perspective in dance and performing arts.`;
+
+  const additionalInfo = `It challenges society to make space for older individuals, to listen to their voices, and to acknowledge their presence.
+
+The piece invites the audience to overcome generational boundaries and think together about an inclusive future where everyone experiences participation and respect.
+
+with : Dorothee Unkelbach, Ingrid Türk, Brigitte Groß, Genoveva Kellnberger.
+Unfornatly 2 died so i have to digest and find a way to primier it.
+Subventioned by the Dezentrale für Kulturelle Arbeit
+
+Video: im ordner drinnen`;
+
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      {/* Title */}
+<MediaGallerySeparated
+        mediaItems={helloItsMeMedia}
+        title="Hello it's me"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer="© Photos by Angela Lamprianidou"
+        imageSize="xlarge"
+      />
+    </div>
+  );
+}

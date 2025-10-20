@@ -1,5 +1,5 @@
-import MediaGallery from "../../../components/MediaGallery";
-
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
 export default function ExpansionPage() {
   const expansionMedia = [
     {
@@ -10,28 +10,35 @@ export default function ExpansionPage() {
     }
   ];
 
-  const description = `Expansion and Explosion
-
-We expand? Where do we expand, which spaces 
+  const description = `We expand? Where do we expand, which spaces 
 and spatial possibilities do we have?
 How is the connection between the inner and outer space?
 Voice is meeting movement - movement is meeting you.
 The connection between the object and the subject?
 A melange of somatic sensing, choreography and 
-pranayama will accompany this workshop.
+pranayama will accompany this workshop.`;
 
-Did you ever have thought and felt though, in, in between, 
+  const additionalInfo = `Did you ever have thought and felt though, in, in between, 
 over and so on to the themes you want to invite in you´re life? 
-I designed a  workshop where there is space to do so.`;
+I designed a  workshop where there is space to do so.
 
-  const additionalInfo = ``;
+This workshop explores the relationship between inner and outer space, 
+combining movement, voice, and breath work to create a holistic 
+experience of expansion and connection.`;
 
   return (
-    <MediaGallery
-      mediaItems={expansionMedia}
-      title="Workshop Expansion and Explosion"
-      description={description}
-      additionalInfo={additionalInfo}
-    />
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      {/* Title */}
+<MediaGallerySeparated
+        mediaItems={expansionMedia}
+        title="Expansion and Explosion"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer=""
+        imageSize="xlarge"
+      />
+    </div>
   );
 }

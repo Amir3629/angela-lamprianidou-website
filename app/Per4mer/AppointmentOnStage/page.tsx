@@ -1,93 +1,49 @@
+'use client';
+
 import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
-import Image from "next/image";
+import Header from "../../../components/Header";
 
 export default function AppointmentOnStagePage() {
   const appointmentMedia = [
     {
-      src: "https://player.vimeo.com/video/176374765",
-      alt: "Appointment on stage video",
+      src: "https://vimeo.com/176374765",
+      alt: "Appointment on Stage Video",
       type: "video" as const,
-      title: "Appointment on Stage"
+      title: "Appointment on Stage Video"
     },
     {
-      src: "/appointment-and-stage.jpeg",
-      alt: "Appointment on stage 1",
+      src: "/01Appointment©MirjamDumont2016.jpg",
+      alt: "Appointment on Stage",
       type: "image" as const,
       title: "Appointment on Stage"
     },
     {
-      src: "/appointment-and-stage.jpeg.jpeg",
-      alt: "Appointment on stage 2",
+      src: "/05Appointment©MirjamDumont2016 Kopie.jpeg",
+      alt: "Choreographic Rendezvous",
       type: "image" as const,
-      title: "Appointment on Stage"
+      title: "Choreographic Rendezvous"
     },
     {
-      src: "/appointment-and-stage.jpegq.jpeg",
-      alt: "Appointment on stage 3",
+      src: "/07Appointment©MirjamDumont2016 Kopie.jpeg",
+      alt: "Five Performers",
       type: "image" as const,
-      title: "Appointment on Stage"
+      title: "Five Performers"
     },
     {
-        src: "/appointment_on_stage_2.jpeg",
-      alt: "Appointment on stage 4",
+      src: "/09appointment©MirjamDumont.jpg",
+      alt: "Feeling-Thinking Unity",
       type: "image" as const,
-      title: "Appointment on Stage"
+      title: "Feeling-Thinking Unity"
     },
     {
-      src: "/appointment_on_stage_22.jpeg",
-      alt: "Appointment on stage 5",
-      type: "image" as const,
-      title: "Appointment on Stage"
-    },
-    {
-      src: "/Appointment-2.jpeg",
-      alt: "Appointment",
-      type: "image" as const,
-      title: "Appointment on Stage"
-    },
-    {
-      src: "/apoointment-on-stage-2.jpeg",
-      alt: "Appointment on stage",
-      type: "image" as const,
-      title: "Appointment on Stage"
-    },
-    {
-      src: "/apoointment-on-stage-22.jpeg",
-      alt: "Appointment on stage",
-      type: "image" as const,
-      title: "Appointment on Stage"
-    },
-    {
-      src: "/appointment-on-stage-musrarta-festival.jpg",
-      alt: "Appointment on stage Musrara festival",
-      type: "image" as const,
-      title: "Appointment on Stage"
-    },
-    {
-      src: "/appointment-on-stage-5.jpeg",
-      alt: "Appointment on stage",
-      type: "image" as const,
-      title: "Appointment on Stage"
-    },
-    {
-      src: "/appointment-on-stage-5.jpeg",
-      alt: "Appointment on stage 6",
-      type: "image" as const,
-      title: "Appointment on Stage"
-    },
-    {
-      src: "/appointment_2.jpeg",
-      alt: "Appointment on stage 7",
-      type: "image" as const,
-      title: "Appointment on Stage"
+      src: "https://vimeo.com/293207886",
+      alt: "Appointment on Stage Video",
+      type: "video" as const,
+      title: "Appointment on Stage Video"
     }
   ];
 
-  const description = `Appointment on stage
-(I want to be the person I am - I am the person I want to be)
-
- www.ballhausost.de/appointment-on-stage-2
-
+  const description = `(I want to be the person I am - I am the person I want to be)
 
 "Appointment on Stage" is a choreographic rendezvous with others 
 and an encounter with oneself. Five performers of different generations 
@@ -96,81 +52,43 @@ thinking unity: „I trust you to be the dance, the man, the moi".
 This acceptance by the individual turns into a composition in which there is 
 an interpretive dancing without kissing and a kissing without documentation. 
 
-Do you understand? 
+Do you understand?`;
 
-Angela Lamprianidou creates an integral dance affair made of words and movement; an autonomous whole. 
-It reveals a conversing of cultures in which language plays the leading and the supporting role. 
+  const additionalInfo = `Angela Lamprianidou creates an integral dance affair made of words and movement; an autonomous whole. 
+It reveals a conversing of cultures in which language plays the leading and the supporting role.
+
 The changing syntax that ensues in the piece raises, among others, 
 the bold question „Am I the person who I want to be?" 
-Do I want to be the person who I am?"`;
-
-  const additionalInfo = `Appointment on stage had its Premiere 
-2016 at Ballhaus Ost in Berlin  
-
-Appointment on stage had its Premiere 2016 at Ballhaus Ost in Berlin
+Do I want to be the person who I am?"
 
 
-Supported by Goethe Institut Tel Aviv
-for Musrara Festival 2018, Jerusalem: https://www.itraveljerusalem.com/de/event/musrara-mix-festival
-
-
-
-
-credits// 
-
-Choreography ++concept ++text
-
-Angela Lamprianidou
-
-Dancers
-
-Irineu Marcovecchio ,Maria Focaraccio ,Rachell Bo Clarck ,Christina Gazi, 
-Angela Lamprianidou, (Selina Thüring)
-
-Co Dramaturg  Achim Wieland
-
-Vocals & Composition Marie Séférian
-
-Music Sounds Andreas Glabutschnig, Paul Rose
-
-Costumes Karina Schwarzmüller
-
-Light Design Achim Wieland
-
-Lenghts: 55minutes
-
-Technical needs : 3 micros// optimum white linoleum// 6 chairs`;
+Appointment on stage had its Premiere 2016 at Ballhaus Ost in Berlin   www.ballhausost.de/appointment-on-stage-2`;
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black text-white website-font media-screen-xlarge page-bg-overlay page-bg-dark-overlay font-variation-3" style={{
-      backgroundImage: `url('/appointment_2.jpeg')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed'
-    }}>
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography relative">
+      <Header />
       <MediaGallerySeparated
         mediaItems={appointmentMedia}
         title="Appointment on stage"
         description={description}
         additionalInfo={additionalInfo}
-        photographer="Mirjam Dumont"
+        photographer="© Photos by Mirjam Dumont"
+        imageSize="xlarge"
       />
-      
-      {/* Logo Images Section */}
-      <div className="relative z-10 px-18 pb-10">
-        <div className="max-w-4xl">
-          <div className="flex justify-center items-center mt-8">
-            <Image
-              src="/image copy 6.png"
-              alt="Logo"
-              width={240}
-              height={100}
-              className="object-contain h-[100px]"
-            />
-          </div>
-        </div>
-      </div>
+       <div className="fixed bottom-4 right-4 z-50">
+         <a 
+           href="https://www.goethe.de/en/index.html" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           className="block hover:opacity-100 transition-opacity duration-200"
+         >
+           <img 
+             src="/image-removebg-preview-8.png" 
+             alt="Goethe Institut Logo" 
+             className="w-24 h-auto opacity-80 hover:opacity-100"
+           />
+         </a>
+       </div>
     </div>
   );
 }

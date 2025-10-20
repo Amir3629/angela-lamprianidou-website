@@ -1,127 +1,98 @@
-import MediaGallery from "../../../components/MediaGallery";
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
 
 export default function JawReleasePage() {
   const jawReleaseMedia = [
     {
-      src: "/JAW_PIC.jpeg",
-      alt: "Jaw and Body Release",
+      src: "/IMG_4069.JPG",
+      alt: "Jaw Release Workshop",
       type: "image" as const,
-      title: "Jaw and Body Release",
-      credit: "©"
+      title: "Jaw Release Workshop"
     },
     {
-      src: "/C_kathrine_Gervais_Jose.jpg",
-      alt: "Jaw and Body Release",
+      src: "/IMG_8528.jpg",
+      alt: "Jaw Release Workshop",
       type: "image" as const,
-      title: "Jaw and Body Release",
-      credit: "© Kathrine Gervais Jose"
+      title: "Jaw Release Workshop"
     },
     {
-      src: "/IMG_5662.jpeg",
-      alt: "Jaw and Body Release",
+      src: "/Jaw Choraogrphie.jgp.jpg",
+      alt: "Jaw Release Workshop",
       type: "image" as const,
-      title: "Jaw and Body Release",
-      credit: "©"
+      title: "Jaw Release Workshop"
     },
     {
-      src: "/Jaw_Bild.jpg",
-      alt: "Jaw and Body Release",
+      src: "/JAW RELEASE PIC2.jpg",
+      alt: "Jaw Release Workshop",
       type: "image" as const,
-      title: "Jaw and Body Release",
-      credit: "©"
+      title: "Jaw Release Workshop"
     },
     {
-      src: "/C_sakis_kyratzis.jpg",
-      alt: "Jaw and Body Release",
-      type: "image" as const,
-      title: "Jaw and Body Release",
-      credit: "© Sakis Kyratzis"
+      src: "https://vimeo.com/manage/videos/904403735",
+      alt: "Jaw Release Workshop Video",
+      type: "video" as const,
+      title: "Jaw Release Workshop Video"
     },
     {
-      src: "/JAW_PICC.jpeg",
-      alt: "Jaw and Body Release",
-      type: "image" as const,
-      title: "Jaw and Body Release",
-      credit: "©"
-    },
-    {
-      src: "/sanfransico.jpg",
-      alt: "Jaw and Body Release San Francisco",
-      type: "image" as const,
-      title: "Jaw and Body Release",
-      credit: "©"
-    },
-    {
-      src: "/workshop-sounding-jaw-wien.jpg",
-      alt: "The Sounding Jaw Wien TQW",
-      type: "image" as const,
-      title: "Jaw and Body Release",
-      credit: "©"
+      src: "https://www.youtube.com/watch?v=PHGGa9Z00hY",
+      alt: "Jaw Release Workshop YouTube Video",
+      type: "video" as const,
+      title: "Jaw Release Workshop YouTube Video"
     }
   ];
 
-  const description = `Jaw and Body Release
+  const description = `In this workshop, you are invited to explore the functionality and anatomy of your jaw — the interplay between upper and lower jaw, the layered complexity of this small, often overlooked articulation.
+It's not just about muscles, joints, and bones - but about space.
+Inner space.
+Space where new movements, thoughts, and feelings are allowed to arise.
+Space for your being.
+Space for communication - with yourself and with others.`;
 
-The jaw, the temporomandibular joint, the mouth, the teeth, the muscles in the surrounding 
-anatomical fields - they are all connected to all other joints and organs.
-The jaw region is - in my experience as a choreographer, dancer, dentist and yoga coach -  
-rarely included in a physical training.
+  const additionalInfo = `Day 1: Arriving - Listening - Making Space
+We begin with a first approach to the jaw:
+What does it mean to be in a resting-floating state?
+"The jaw joint slides forward and backward, up and down - in a small socket of the upper jaw. The ideal distance: 2 millimeters. Then you are in your resting-floating state. A state in which your jaw - and you — are allowed to come to rest." Through targeted breathing techniques, we balance our nervous system.
+At the center is the Polyvagal Theory by Dr. Stephen Porges - an invitation to harmonize the vagus nerve through breath, movement, and presence.
+I invite you into spaces - both inner and outer.
+As a choreographer, I will guide you through movement and imagination to support your physical and mental flexibility.
 
-The first day of the workshop will focus on the following areas:
+Day 2: Opening - Connection - Digestion
+On the second day, we dive deeper into the connection between pelvis and jaw — the two "gatekeepers" of our body.
+Entrance and exit. Nourishment. Digestion. Expression.
+We work with partner exercises, deep listening, and conscious contact - everything is welcome, nothing is forced.
+Please bring comfortable clothing, food & water - and your openness: be open to receive.
 
-Jaw related to hips and repressed emotions.
+Day 3: Expression - Voice - Integration
+On the third day, all elements come together:
+Movement, breath, voice.
+Your jaw becomes a bridge - between inner and outer worlds, between emotion and expression.
 
-On the second day: organs teeth and jaw
+We work with:
+• Voice work (toning, simple melodies, intuitive sounds)
+• Movement choreographies from dance and somatic practices
+• Emotional resonance through sound
 
-On both days we practice different breathing techniques, including polyvagal breathing, to 
-stabilize the central nervous system.
+Your voice is the expression of your mood.
+Sounds that touch. Movement that connects.
 
-# In my view, the jaw joint stands as a metaphor for life: Nourishment, Communication, 
-Movement: "if you can let go of the jaw, you can surrender"
-# Sexual repression can also be closely related to clinging.
-# Many people suffer from the consequences of teeth grinding or clenching , and often have 
-little knowledge about this joint that affects the whole body: skeleton, muscles, organs and 
-emotions.
-
-This workshop will first raise awareness of the temporomandibular joint and examine 
-its function from a holistic perspective. This small musculoskeletal system can cause extreme 
-discomfort and mood swings. According to my research I can say that "crunchers" need more 
-movement and "pressers" need more stability in the body.
-
-Why do people use this joint? To de-stress, to express oneself, to get sexually excited? The 
-workshop seeks the connection between inner and outer communication. The entrance to the 
-oral cavity is used, among other things, for eating, speaking, singing, sexual arousal. An 
-almost constantly active articulation that cries out to be relaxed. Jaw Release is thus a 
-melange of Somatic Sensing, dance, breathing, all in conjunction with action and reaction. 
-The relaxation of the joint and surrounding muscular groups lead to a palpable toning of your 
-being and self.
-
-breathing - thinking - sharing - dancing - aligning - voicing
-
-Jaw Release
-is an artistic invitation: communication, voice and body are invited to function as a whole 
-unit. After the Jaw Release training, which brings the whole body to relaxation in a holistic 
-way, we will explore together performatively and playfully life issues, moods and spaces in 
-our body and outside. Vagus breathing will play a special role and Bonding will also be a part 
-of the workshop to stabilize the inner bond. 
-
-For all people who want to dance, sing and speak with their whole body, ultimately accept it 
-as a whole, and bring a great desire to share that with others.`;
-
-  const additionalInfo = `More:
-
-www.you-are-the-point.de
-www.lamprianidou.com
-
-External Links:
-• TQW Workshop: The Sounding Jaw - https://www.tqw.at/veranstaltungen/the-sounding-jaw-lamprianidou/`;
+We close the workshop with a ritual sequence, where you are invited to explore:
+What does your jaw want to tell you?
+If you listen, it will lead you directly to your feeling.
+"Feel"-ings. Joints. Movement.
+A choreography of medicine and dance.`;
 
   return (
-    <MediaGallery
-      mediaItems={jawReleaseMedia}
-      title="Workshop Jaw and Body Release"
-      description={description}
-      additionalInfo={additionalInfo}
-    />
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      <MediaGallerySeparated
+        mediaItems={jawReleaseMedia}
+        title="Jaw Release Workshop"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer="© Photos by [Photographer Name]"
+        imageSize="xlarge"
+      />
+    </div>
   );
 }

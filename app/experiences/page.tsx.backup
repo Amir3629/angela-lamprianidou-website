@@ -1,0 +1,115 @@
+'use client';
+
+import MediaGallerySeparated from "../../components/MediaGallerySeparated";
+import Header from "../../components/Header";
+import Link from "next/link";
+
+export default function ExperiencesPage() {
+  const experiencesMedia = [
+    {
+      src: "/ballet-for-bloody-beginners.jpg", 
+      alt: "Ballet for bloody beginners experience",
+      type: "image" as const,
+      title: "Ballet for bloody beginners"
+    },
+    {
+      src: "/Tapantare.jpg",
+      alt: "From NOW to Now experience", 
+      type: "image" as const,
+      title: "From NOW to Now"
+    },
+    {
+      src: "/hello-its-me-1.jpg",
+      alt: "Hello it's me experience",
+      type: "image" as const,
+      title: "Hello it's me"
+    }
+  ];
+
+  const description = `Angela Lamprianidou offers transformative choreographic experiences that explore the intersection of movement, presence, and human connection. These immersive encounters go beyond traditional performance, creating spaces where bodies speak, remember, and shift together.
+
+Each experience is carefully crafted to open new pathways of perception and connection. Through guided movement, breath work, and somatic exploration, participants discover layers of themselves that were previously hidden or forgotten.
+
+The experiences range from intimate one-on-one sessions to group workshops, each designed to meet participants where they are. Angela's approach combines her background in dance, dentistry, and somatic research to create unique methodologies.`;
+
+  const additionalInfo = `Available Experiences:
+
+Pure - A choreographic experience centered on human contact, vulnerability, and the raw essence of connection. Created in 2017 for the Let Me In Festival, performed at the Goethe-Institut in both Berlin and Madrid.
+
+Ballet for bloody beginners - An accessible introduction to ballet movement and expression.
+
+From NOW to Now - An invitation to experience presence through space, body, and perception.
+
+Back to Emotion - Exploring the return to authentic feeling and emotional expression through movement.
+
+Flirt In - A playful, performative workshop — a sensual laboratory of communication and body language.
+
+Hello it's me - A choreographic experience exploring personal identity and self-expression through movement.`;
+
+  const experiences = [
+    {
+      title: "Pure",
+      href: "/pure",
+      description: "A choreographic experience centered on human contact, vulnerability, and the raw essence of connection."
+    },
+    {
+      title: "Ballet for bloody beginners", 
+      href: "/Per4mer/BalletBloody",
+      description: "An accessible introduction to ballet movement and expression."
+    },
+    {
+      title: "From NOW to Now",
+      href: "/Per4mer/FromNOWtoNow", 
+      description: "An invitation to experience presence through space, body, and perception."
+    },
+    {
+      title: "Back to Emotion",
+      href: "/Per4mer/backtoemotion",
+      description: "Exploring the return to authentic feeling and emotional expression through movement."
+    },
+    {
+      title: "Flirt In",
+      href: "/flirt-in",
+      description: "A playful, performative workshop — a sensual laboratory of communication and body language."
+    },
+    {
+      title: "Hello it's me",
+      href: "/hello-its-me",
+      description: "A choreographic experience exploring personal identity and self-expression through movement."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      {/* Title */}
+<MediaGallerySeparated
+        mediaItems={experiencesMedia}
+        title="Experiences"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer=""
+        imageSize="xlarge"
+      />
+
+          {/* Simple Navigation Section */}
+          <div className="px-2 sm:px-4 md:px-18 py-6 sm:py-8 md:py-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-3 sm:space-y-4">
+                {experiences.map((experience, index) => (
+                  <Link 
+                    key={index}
+                    href={experience.href}
+                    className="block p-4 sm:p-6 border border-gray-200 transition-colors duration-200 touch-target"
+                  >
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 hover:scale-110 transition-all duration-300 ease-in-out" style={{ fontSize: 'inherit' }}>{experience.title}</h2>
+                    <p className="text-gray-600 text-sm sm:text-base hover:scale-110 transition-all duration-300 ease-in-out">{experience.description}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+    </div>
+  );
+}

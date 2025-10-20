@@ -1,5 +1,5 @@
-import MediaGallery from "../../../../components/MediaGallery";
-
+import MediaGallerySeparated from "../../../../components/MediaGallerySeparated";
+import Header from "../../../../components/Header";
 export default function ThenotePage() {
   const noteMedia = [
     {
@@ -30,11 +30,15 @@ Key Elements:
 • Exploration of rhythm, pitch, and dynamics in movement`;
 
   return (
-    <MediaGallery
-      mediaItems={noteMedia}
-      title="the note"
-      description={description}
-      additionalInfo={additionalInfo}
-    />
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-medium angela-typography">
+      <Header />
+      <MediaGallerySeparated
+        mediaItems={noteMedia}
+        title="the note"
+        description={description}
+        additionalInfo={additionalInfo}
+        imageSize="xlarge"
+      />
+    </div>
   );
 }

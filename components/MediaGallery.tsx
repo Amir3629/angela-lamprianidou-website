@@ -38,17 +38,26 @@ export default function MediaGallery({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isChanging, setIsChanging] = useState(false);
   const [isModalClosing, setIsModalClosing] = useState(false);
+  const [modalMediaItem, setModalMediaItem] = useState<MediaItem | null>(null);
 
-  const selectedMedia = mediaItems[selectedIndex];
+  // Limit to 4 images max, rest go to gallery
+  const allImages = mediaItems.filter(item => item.type === 'image');
+  const videos = mediaItems.filter(item => item.type === 'video');
+  const images = allImages.slice(0, 4);
+  const galleryImages = allImages.slice(4);
+  
+  // Combine videos with limited images
+  const limitedMediaItems = [...videos, ...images];
+  const selectedMedia = limitedMediaItems[selectedIndex];
 
   // Auto-advance slideshow - change image every 8 seconds
   useEffect(() => {
-    if (mediaItems.length <= 1) return; // Don't auto-advance if only one item
+    if (limitedMediaItems.length <= 1) return; // Don't auto-advance if only one item
     
     const interval = setInterval(() => {
       setIsChanging(true);
       setTimeout(() => {
-        setSelectedIndex((prev) => (prev < mediaItems.length - 1 ? prev + 1 : 0));
+        setSelectedIndex((prev) => (prev < limitedMediaItems.length - 1 ? prev + 1 : 0));
         setIsChanging(false);
       }, 1000); // Smooth 1000ms (1 second) transition
     }, 8000); // Change every 8 seconds
@@ -59,6 +68,10 @@ export default function MediaGallery({
   const openModal = () => {
     setIsModalClosing(false);
     setIsModalOpen(true);
+    // Add smooth opening animation
+    setTimeout(() => {
+      setIsModalClosing(false);
+    }, 50);
   };
   
   const closeModal = () => {
@@ -127,11 +140,11 @@ export default function MediaGallery({
           {/* Layout: Images in corners, text flows around them like newspaper */}
           <div className="relative">
             {/* Top Left Image Container - Float left for text wrapping */}
-            <div className="float-left w-full md:w-[500px] mr-0 md:mr-8 mb-4 space-y-4 media-display-container">
+            <div className="float-left w-full md:w-[300px] mr-0 md:mr-8 mb-4 space-y-4 media-display-container">
               {/* Main Display Screen */}
               <div className="relative group">
                 <div 
-                  className="relative w-full border-2 border-transparent rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:border-green-600"
+                  className="relative w-full border-2 border-transparent rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:border-gray-600"
                   style={{ aspectRatio: '1169/826' }}
                   onClick={openModal}
                 >
@@ -140,8 +153,8 @@ export default function MediaGallery({
                         src={selectedMedia.src}
                         alt={selectedMedia.alt}
                         fill
-                        className={`object-contain transition-opacity duration-[1000ms] ease-in-out group-hover:scale-105 ${isChanging ? 'opacity-0' : 'opacity-100'}`}
-                        sizes="500px"
+                        className={`object-contain transition-all duration-700 ease-in-out group-hover:scale-105 ${isChanging ? 'opacity-0' : 'opacity-100'}`}
+                        sizes="300px"
                       />
                     ) : selectedMedia && selectedMedia.type === 'video' ? (
                       selectedMedia.src.includes('vimeo.com') ? (
@@ -182,7 +195,7 @@ export default function MediaGallery({
                           e.stopPropagation();
                           handlePrevious();
                         }}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-2xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-125"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 text-white/80  text-2xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-105"
                       >
                         ‹
                       </button>
@@ -191,7 +204,7 @@ export default function MediaGallery({
                           e.stopPropagation();
                           handleNext();
                         }}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-2xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-125"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 text-white/80  text-2xl transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-105"
                       >
                         ›
                       </button>
@@ -199,9 +212,9 @@ export default function MediaGallery({
                   )}
 
                   {/* Media Counter - Only show if multiple images */}
-                  {mediaItems.length > 1 && (
-                  <div className="absolute bottom-4 right-4 bg-black/60 text-white website-small px-2 py-1 rounded">
-                    {selectedIndex + 1} / {mediaItems.length}
+                  {limitedMediaItems.length > 1 && (
+                  <div className="absolute bottom-4 right-4 bg-black/50 text-white !text-white px-1 py-0.5 rounded" style={{fontSize: '8px'}}>
+                    {selectedIndex + 1} / {limitedMediaItems.length}
                   </div>
                   )}
 
@@ -215,16 +228,16 @@ export default function MediaGallery({
               </div>
 
               {/* Thumbnails - Only show if multiple images */}
-              {mediaItems.length > 1 && (
-                <div className="relative">
-                  <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                    {mediaItems.map((item, index) => (
+              {limitedMediaItems.length > 1 && (
+                <div className="relative mt-8">
+                  <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide justify-center">
+                    {limitedMediaItems.map((item, index) => (
                       <div
                         key={index}
-                        className={`relative flex-shrink-0 w-20 h-20 cursor-pointer rounded transition-all duration-200 ${
+                        className={`relative flex-shrink-0 w-36 h-36 cursor-pointer rounded transition-all duration-200 ${
                           index === selectedIndex
-                            ? 'ring-2 ring-green-600'
-                            : 'hover:ring-2 hover:ring-white/40'
+                            ? 'border-2 border-gray-600'
+                            : 'hover:border-2 hover:border-white/40'
                         }`}
                         onClick={() => handleThumbnailClick(index)}
                       >
@@ -234,7 +247,7 @@ export default function MediaGallery({
                             alt={item.alt}
                             fill
                             className="object-contain rounded"
-                            sizes="80px"
+                            sizes="144px"
                           />
                         ) : item.src.includes('vimeo.com') ? (
                           <Image
@@ -242,7 +255,7 @@ export default function MediaGallery({
                             alt={item.alt}
                             fill
                             className="object-cover rounded"
-                            sizes="80px"
+                            sizes="144px"
                           />
                         ) : item.src.includes('youtube.com') || item.src.includes('youtu.be') ? (
                           <Image
@@ -250,7 +263,7 @@ export default function MediaGallery({
                             alt={item.alt}
                             fill
                             className="object-cover rounded"
-                            sizes="80px"
+                            sizes="144px"
                           />
                         ) : item.src.endsWith('.mp4') || item.src.endsWith('.mov') ? (
                           <div className="relative w-full h-full bg-gray-800 rounded overflow-hidden">
@@ -280,6 +293,7 @@ export default function MediaGallery({
                 <p className="website-small">© {photographer}</p>
               )}
             </div>
+
 
             {/* Text Content - Original Style */}
             <div className="space-y-4">
@@ -345,20 +359,20 @@ export default function MediaGallery({
       {/* Modal for Full Size Media */}
       {isModalOpen && (
         <div
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm transition-all duration-300 ${
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm transition-all duration-500 ease-out ${
             isModalClosing ? 'opacity-0' : 'opacity-100'
           }`}
           onClick={closeModal}
         >
           <div
-            className={`relative max-w-6xl max-h-[90vh] p-4 transition-all duration-300 ${
+            className={`relative max-w-6xl max-h-[90vh] p-4 transition-all duration-500 ease-out ${
               isModalClosing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
             }`}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={closeModal}
-              className="absolute -top-2 -right-2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold transition-all duration-300 hover:scale-110 shadow-lg border border-white/30 hover:border-white/60"
+              className="absolute -top-2 -right-2 z-10 bg-black/70 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg border border-white/30"
             >
               ×
             </button>
@@ -404,7 +418,7 @@ export default function MediaGallery({
                     e.stopPropagation();
                     handlePrevious();
                   }}
-                  className="bg-black/70 hover:bg-black/90 text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border border-white/30 hover:border-white/60"
+                  className="bg-black/70 text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border border-white/30"
                 >
                   Previous
                 </button>
@@ -416,7 +430,7 @@ export default function MediaGallery({
                     e.stopPropagation();
                     handleNext();
                   }}
-                className="bg-black/70 hover:bg-black/90 text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border border-white/30 hover:border-white/60"
+                className="bg-black/70 text-white px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg border border-white/30"
               >
                 Next
               </button>

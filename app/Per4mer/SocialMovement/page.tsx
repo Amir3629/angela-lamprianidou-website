@@ -1,25 +1,39 @@
+'use client';
+
 import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
-import Image from "next/image";
+import Header from "../../../components/Header";
 
 export default function SocialMovementPage() {
   const socialMovementMedia = [
     {
-      src: "https://www.youtube.com/embed/DqG7-sWSphw",
-      alt: "Dance as a social movement video",
+      src: "/_DSC0089.jpeg",
+      alt: "Dance as a social movement",
+      type: "image" as const,
+      title: "Dance as a social movement"
+    },
+    {
+      src: "/_DSC0113.jpg",
+      alt: "Social Movement Performance",
+      type: "image" as const,
+      title: "Social Movement Performance"
+    },
+    {
+      src: "/dance as a social movement .jpg",
+      alt: "Community Dance",
+      type: "image" as const,
+      title: "Community Dance"
+    },
+    {
+      src: "/THTH !3.9.jpeg",
+      alt: "Breaking Boundaries",
+      type: "image" as const,
+      title: "Breaking Boundaries"
+    },
+    {
+      src: "https://www.youtube.com/watch?v=DqG7-sWSphw",
+      alt: "Social Movement Dance Video",
       type: "video" as const,
-      title: "Dance as a social movement"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/SocialMovement/ML5D2537.JPG",
-      alt: "Dance as a social movement 1",
-      type: "image" as const,
-      title: "Dance as a social movement"
-    },
-    {
-      src: "https://lamprianidou.com/Per4mer/SocialMovement/Tanz_als_1.jpg",
-      alt: "Dance as a social movement 2",
-      type: "image" as const,
-      title: "Dance as a social movement"
+      title: "Social Movement Dance Video"
     }
   ];
 
@@ -32,48 +46,47 @@ to break the boundaries between ensemble
 and audience and to transform them. In this 
 way, the stage can become a place of social 
 movement and encounters.
-
+                                              
 Angela Lamprianidou has already broken 
 the boundaries between Performers and 
 Audience in her Choreographic experience 
-Tanz Hin Tanz her (player.vimeo.com/video/279447734) 
+Tanz Hin Tanz her 
 Now she is interested in arrange dance 
 movements as a "break" of work school, 
 learning etc – in general institutions: 
-A call for dance.`;
+A call for dance.
 
-  const additionalInfo = `Supported by Fonds Darstellende Künste with funds 
+
+Supported by Fonds Darstellende Künste with funds 
 from the Federal Government Commissioner for Culture 
 and Media within the program NEUSTART KULTUR`;
 
+  const additionalInfo = ``;
+
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black text-white website-font font-variation-3 page-bg-overlay media-screen-large" style={{
-      backgroundImage: `url('https://lamprianidou.com/Per4mer/SocialMovement/ML5D2537.JPG')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed'
-    }}>
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography relative">
+      <Header />
       <MediaGallerySeparated
         mediaItems={socialMovementMedia}
         title="Dance as a social movement"
         description={description}
         additionalInfo={additionalInfo}
+        photographer="© Photos by LaRaitz"
+        imageSize="xlarge"
       />
-      
-      {/* Logo Images Section */}
-      <div className="relative z-10 px-18 pb-48">
-        <div className="max-w-4xl">
-          <div className="flex justify-center items-center -mt-64">
-            <Image
-              src="/image copy 5.png"
-              alt="Logo"
-              width={240}
-              height={100}
-              className="object-contain h-[100px]"
-            />
-          </div>
-        </div>
+      <div className="fixed bottom-4 right-4 z-50">
+        <a 
+          href="https://kulturberatung-hessen.de/foerderprogramme/fonds-darstellende-kuenste-recherchefoerderung" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block hover:opacity-100 transition-opacity duration-200"
+        >
+          <img 
+            src="/image copy 10.png" 
+            alt="Fonds Darstellende Künste Logo" 
+            className="w-40 h-auto opacity-80 hover:opacity-100"
+          />
+        </a>
       </div>
     </div>
   );

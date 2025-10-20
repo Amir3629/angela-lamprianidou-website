@@ -1,5 +1,5 @@
-import MediaGallery from "../../../components/MediaGallery";
-
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
 export default function YogaPage() {
   const yogaMedia = [
     {
@@ -16,9 +16,7 @@ export default function YogaPage() {
     }
   ];
 
-  const description = `Yoga - Composition - Dance
-
-Breathing - the basis of life. 
+  const description = `Breathing - the basis of life. 
 Giving and receiving. 
 Expansion and contraction - within every singular cell. 
 Breathing, the awareness of breathing is the base of getting 
@@ -28,9 +26,9 @@ expansion and contraction.
 The more we become aware of this and accept this experience, 
 and integrate it into our daily life, 
 the more we will live, love and share, 
-all about to share one the experience. 
+all about to share one the experience.`;
 
-A. Lamprianidou will cover three aspects of life: 
+  const additionalInfo = `A. Lamprianidou will cover three aspects of life: 
 The Art of Dance, Choreography and Yoga. 
 
 The class will be a course into yoga-composition. 
@@ -39,18 +37,26 @@ and Hatha Yoga and contemporary dance.
 The participants will in a playful way develop a short yoga-composition, 
 which includes choreographic skills, like duration rhythm time 
 
-It´s free to all which wants to share this experience! 
+It\`s free to all which wants to share this experience! 
  
-Yoga intermedia level is needed, but not a must...`;
+Yoga intermedia level is needed, but not a must... 
 
-  const additionalInfo = `PDF: /YogaCompositionDance.pdf`;
+
+/YogaCompositionDance.pdf`;
 
   return (
-    <MediaGallery
-      mediaItems={yogaMedia}
-      title="Workshop Yoga - Composition - Dance"
-      description={description}
-      additionalInfo={additionalInfo}
-    />
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      
+      {/* Title */}
+<MediaGallerySeparated
+        mediaItems={yogaMedia}
+        title="Yoga - Composition - Dance"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer=""
+        imageSize="xlarge"
+      />
+    </div>
   );
 }

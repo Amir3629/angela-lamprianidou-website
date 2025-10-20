@@ -1,4 +1,4 @@
-import MediaGallery from "../../../components/MediaGallery";
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
 
 export default function TimePage() {
   const timeMedia = [
@@ -48,20 +48,19 @@ Music: John Cage, Cirque de Solei, Josephine Baker, John Cale
 Technical Details:
 Light: 
 Stage: min 20x25 ft.indoor performance, possibility to hang scenic from the ceiling
-Misc: CDplayer, scenics (click here)
+Misc: CDplayer, scenics (<a href="https://lamprianidou.com/Per4mer/time/time_s.html" target="_blank" rel="noopener noreferrer" className="text-green-600  underline">click here</a>)
 Duration: 55 min
 
-performed 2002/03 in Barcelona and at Arena Festival/Erlangen
-
-More information:
-/archive/time/scenics`;
+performed 2002/03 in Barcelona and at Arena Festival/Erlangen`;
 
   return (
-    <MediaGallery
-      mediaItems={timeMedia}
-      title="Time"
-      description={description}
-      additionalInfo={additionalInfo}
-    />
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1">
+      <MediaGallerySeparated
+        mediaItems={timeMedia}
+        title="Time"
+        description={description}
+        additionalInfo={additionalInfo}
+      />
+    </div>
   );
 }

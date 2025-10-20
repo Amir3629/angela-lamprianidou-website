@@ -15,117 +15,626 @@
     url("/fonts/FreeMonoBold.ttf") format("truetype");
 }
 
-/* Base styles matching original */
+/* Base styles matching Angela's old website exactly */
 html, body {
   background-color: black;
-  color: #ffffff;
-  font-family: FreeMono, "courier new", monospace;
-  letter-spacing: 0.23px;
-  line-height: 1.1;
-  font-size: 16px;
+  color: #000000; /* Keep original black text */
+  font-family: "courier new"; /* Exact match to old website - no monospace fallback */
+  letter-spacing: normal; /* Normal letter spacing like old website */
+  line-height: normal; /* Normal line height like old website */
+  font-size: 16px !important; /* Angela's old website: 16px body text */
+  font-weight: 400; /* Normal weight like old website */
+  font-stretch: 100%; /* Normal stretch like old website */
   height: 100%;
   padding: 0px;
   margin: 0px;
 }
 
-/* Links */
+/* Typography matching Angela's old website exactly */
+.angela-typography h1,
+.angela-typography h2,
+.angela-typography h3,
+.angela-typography h4,
+.angela-typography h5,
+.angela-typography h6 {
+  font-family: "courier new"; /* Exact match to old website - no monospace fallback */
+  font-size: 16px !important; /* Same as body text like old website */
+  font-weight: 700 !important; /* Bold/thick titles */
+  color: #000000 !important; /* Keep original black text */
+  line-height: normal;
+  margin-bottom: 0.8rem;
+}
+
+.angela-typography p {
+  font-size: 16px !important; /* Same as old website */
+  line-height: normal !important; /* Normal line height like old website */
+  margin-bottom: 0.2rem !important;
+  color: #000000 !important; /* Keep original black text */
+}
+
+/* Apply Angela's old website typography to ALL pages by default */
+body {
+  font-size: 16px !important; /* Body text: 16px like old website */
+  line-height: normal !important; /* Normal line height like old website */
+  color: #000000 !important; /* Keep original black text */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 16px !important; /* Headlines: 16px like old website */
+  font-weight: 700 !important; /* Bold/thick titles */
+  color: #000000 !important; /* Keep original black text */
+}
+
+p {
+  font-size: 16px !important; /* Body text: 16px like old website */
+  line-height: normal !important; /* Normal line height like old website */
+  color: #000000 !important; /* Keep original black text */
+}
+
+/* Links matching Angela's old website */
 a {
   text-decoration: none;
-  color: #fff;
+  color: #000000; /* Keep original black links */
   border: none;
   outline: 0;
+  font-weight: 700; /* Bold links like old website */
 }
 
 a:hover {
-  font-weight: normal;
-  color: #0c0;
+  font-weight: 700;
+  color: #6b934b; /* Green hover */
   border: none;
+}
+
+/* Custom green color for links */
+.text-green-600 {
+  color: #6b934b !important;
+}
+
+.text-green-700 {
+  color: #5a7d3a !important;
+}
+
+/* Navigation links in header */
+header a, header nav a {
+  font-size: 16px !important; /* Same as old website */
+  font-weight: 700; /* Bold like old website */
+  color: #ffffff !important; /* Keep white for header */
+}
+
+/* Force header text to be white - override any conflicting styles */
+header a, header nav a, header .font-bold {
+  color: #ffffff !important;
+}
+
+/* Specific rule for Angela Lamprianidou link */
+header a[href="/"] {
+  color: #ffffff !important;
+}
+
+/* ULTRA SPECIFIC - Force white text for header logo link */
+header div.flex.items-center.space-x-2 a[href="/"],
+header div.flex.items-center.space-x-4 a[href="/"],
+header a[href="/"] span {
+  color: #ffffff !important;
+}
+
+/* Force all text in header to be white */
+header * {
+  color: #ffffff !important;
+}
+
+/* Override any black text in header */
+header a, header span, header div {
+  color: #ffffff !important;
 }
 
 /* Standardized font classes */
 .website-font {
-  font-family: FreeMono, "courier new", monospace;
-  letter-spacing: 0.23px;
-  line-height: 1.1;
-  color: #ffffff;
+  font-family: "courier new"; /* Exact match to old website - no monospace fallback */
+  letter-spacing: normal;
+  line-height: normal;
+  color: #000000; /* Keep original black text */
 }
 
+/* Comprehensive Mobile Responsive Design */
+
+/* Mobile First - Base styles for all devices */
+.website-text {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 1rem;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Small mobile devices (320px - 480px) */
+@media (max-width: 480px) {
+  .website-text {
+    padding: 0 0.75rem;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  
+  .angela-typography p {
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.3rem !important;
+  }
+  
+  .angela-typography h1,
+  .angela-typography h2,
+  .angela-typography h3,
+  .angela-typography h4,
+  .angela-typography h5,
+  .angela-typography h6 {
+    font-size: 14px !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Header adjustments for small mobile */
+  header {
+    padding: 0.5rem 0;
+  }
+  
+  header .max-w-7xl {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  /* Logo adjustments */
+  .h-23 {
+    height: 3rem;
+    width: 3rem;
+  }
+  
+  /* Navigation text size */
+  header a, header nav a {
+    font-size: 14px !important;
+  }
+}
+
+/* Medium mobile devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .website-text {
+    padding: 0 1rem;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .angela-typography p {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .angela-typography h1,
+  .angela-typography h2,
+  .angela-typography h3,
+  .angela-typography h4,
+  .angela-typography h5,
+  .angela-typography h6 {
+    font-size: 15px !important;
+  }
+}
+
+/* Tablet devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .website-text {
+    max-width: 90%;
+    padding: 0 1.5rem;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  
+  .angela-typography p {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .angela-typography h1,
+  .angela-typography h2,
+  .angela-typography h3,
+  .angela-typography h4,
+  .angela-typography h5,
+  .angela-typography h6 {
+    font-size: 16px !important;
+  }
+}
+
+/* Desktop devices (1025px - 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .website-text {
+    max-width: 800px;
+    padding: 0 2rem;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* Large desktop devices (1281px+) */
+@media (min-width: 1281px) {
+  .website-text {
+    max-width: 1000px;
+    padding: 0 2rem;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Ensure proper spacing on mobile */
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .md\:px-18 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Mobile image sizing */
+  .max-w-xs {
+    max-width: 12rem;
+  }
+  
+  .md\:max-w-sm {
+    max-width: 12rem;
+  }
+  
+  /* Mobile text wrapping */
+  .float-right {
+    float: none;
+    margin: 0 auto 1rem auto;
+    display: block;
+    text-align: center;
+  }
+  
+  .clear-both {
+    clear: both;
+  }
+  
+  /* Mobile navigation improvements */
+  .mobile-menu {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Mobile gallery improvements */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Mobile modal improvements */
+  .modal-content {
+    margin: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better touch feedback */
+  .touch-target {
+    padding: 0.5rem;
+    margin: -0.5rem;
+  }
+}
+
+/* Enhanced touch targets for mobile devices */
+@media (max-width: 768px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Better spacing for gallery items on mobile */
+  .gallery-columns .touch-target {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Improved button spacing on mobile */
+  .choreographer-page button {
+    padding: 0.75rem 1rem;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Ensure crisp text on high DPI displays */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* White background pages - black text */
+.website-font.white-bg {
+  color: #000000;
+}
+
+/* White background pages - all text elements must be black */
+.website-font.white-bg *:not(header *):not(header):not(footer *):not(footer) {
+  color: #000000 !important;
+}
+
+/* White background pages - links must be black */
+.website-font.white-bg a:not(header a):not(header *):not(footer a):not(footer *) {
+  color: #000000 !important;
+}
+
+.website-font.white-bg a:not(header a):not(header *):not(footer a):not(footer *):hover {
+  color: #6b934b !important; /* Green hover */
+}
+
+/* Header must maintain its dynamic colors */
+header * {
+  color: inherit !important;
+}
+
+header a {
+  color: inherit !important;
+}
+
+/* Ensure header buttons maintain proper size and spacing */
+header nav a,
+header nav button {
+  font-size: 16px !important; /* Same as old website */
+  line-height: normal !important;
+  padding: 10px 16px !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  font-family: "courier new" !important; /* Exact match to old website - no monospace fallback */
+  letter-spacing: normal !important;
+  font-weight: 700 !important; /* Bold like old website */
+}
+
+/* Ensure header gradient background is always applied */
+header {
+  background: linear-gradient(to bottom, 
+    rgba(0,0,0,1) 0%, 
+    rgba(0,0,0,1) 40%, 
+    rgba(0,0,0,0.85) 55%, 
+    rgba(0,0,0,0.7) 65%, 
+    rgba(0,0,0,0.5) 75%, 
+    rgba(0,0,0,0.3) 85%, 
+    rgba(0,0,0,0.1) 95%, 
+    rgba(0,0,0,0) 100%) !important;
+  height: 120px !important;
+}
+
+/* Extra strong header gradient for specific pages */
+.website-font.white-bg header,
+.media-screen-small header,
+.font-variation-1 header {
+  background: linear-gradient(to bottom, 
+    rgba(0,0,0,1) 0%, 
+    rgba(0,0,0,1) 40%, 
+    rgba(0,0,0,0.85) 55%, 
+    rgba(0,0,0,0.7) 65%, 
+    rgba(0,0,0,0.5) 75%, 
+    rgba(0,0,0,0.3) 85%, 
+    rgba(0,0,0,0.1) 95%, 
+    rgba(0,0,0,0) 100%) !important;
+  height: 120px !important;
+}
+
+/* FORCE header gradient on ALL pages */
+body header,
+html header,
+div header,
+.website-font header,
+.white-bg header,
+.media-screen-small header,
+.font-variation-1 header,
+.font-variation-2 header,
+.font-variation-3 header,
+.font-variation-4 header {
+  background: linear-gradient(to bottom, 
+    rgba(0,0,0,1) 0%, 
+    rgba(0,0,0,1) 40%, 
+    rgba(0,0,0,0.85) 55%, 
+    rgba(0,0,0,0.7) 65%, 
+    rgba(0,0,0,0.5) 75%, 
+    rgba(0,0,0,0.3) 85%, 
+    rgba(0,0,0,0.1) 95%, 
+    rgba(0,0,0,0) 100%) !important;
+  height: 120px !important;
+  z-index: 20 !important;
+}
+
+/* Special header gradient for pages with black backgrounds */
+.bg-black header {
+  background: linear-gradient(to bottom, 
+    rgba(0,0,0,1) 0%, 
+    rgba(0,0,0,1) 40%, 
+    rgba(0,0,0,0.85) 55%, 
+    rgba(0,0,0,0.7) 65%, 
+    rgba(0,0,0,0.5) 75%, 
+    rgba(0,0,0,0.3) 85%, 
+    rgba(0,0,0,0.1) 95%, 
+    rgba(0,0,0,0) 100%) !important;
+  height: 120px !important;
+  z-index: 20 !important;
+}
+
+/* Homepage header - completely black with no gradient */
+body.homepage header {
+  background: rgba(0,0,0,1) !important;
+  height: 80px !important;
+  z-index: 20 !important;
+}
+
+/* Make sure header logo text and navigation links are white on homepage */
+body.homepage header .header-logo a,
+body.homepage header nav a,
+body.homepage header nav button {
+  color: white !important;
+}
+
+/* Website title styling */
 .website-title {
-  font-family: FreeMono, "courier new", monospace;
-  font-weight: 400;
-  letter-spacing: 0.23px;
-  line-height: 1.1;
-  color: #ffffff;
-  font-size: 1.5em;
+  font-family: "courier new"; /* Exact match to old website - no monospace fallback */
+  font-weight: 700 !important; /* Bold/thick titles */
+  letter-spacing: normal;
+  line-height: normal;
+  font-size: 16px !important; /* Same as old website */
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+  color: #000000 !important; /* Keep original black text */
+}
+
+/* Page titles in MediaGallerySeparated */
+.website-text .font-bold {
+  font-size: 16px !important; /* Same as old website */
+  font-weight: 700 !important; /* Bold/thick titles */
+  color: #000000 !important; /* Keep original black text */
+  font-family: "courier new" !important; /* Exact match to old website - no monospace fallback */
+}
+
+/* Main page title */
+.main-page-title {
+  font-family: "courier new"; /* Exact match to old website - no monospace fallback */
+  font-weight: 700 !important; /* Bold/thick titles */
+  letter-spacing: normal;
+  line-height: normal;
+  font-size: 16px !important; /* Same as old website */
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+  color: #000000 !important; /* Keep original black text */
+}
+
+/* Header logo */
+.header-logo {
+  font-family: "courier new"; /* Exact match to old website - no monospace fallback */
+  font-weight: 400; /* Normal weight like old website */
+  letter-spacing: normal;
+  line-height: normal;
+  font-size: 16px !important; /* Same as old website */
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* Shadow line effect under title */
+.relative.z-10 .website-title {
+  display: inline-block;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* White background pages - black text */
+.website-font.white-bg .website-title {
+  color: #000000;
+}
+
+/* Gallery cards titles - always black on white background */
+.bg-white .website-title,
+.bg-white h3 {
+  color: #000000 !important;
+}
+
+/* Header title on white background pages - black text */
+.website-title a {
+  color: inherit;
+}
+
+/* Force Tailwind text colors to work in header */
+header .text-black {
+  color: #000000 !important;
+}
+
+header .text-white {
+  color: #ffffff !important;
+}
+
+/* Force black text on white background pages */
+.text-black .website-title,
+.text-black .website-text,
+.text-black h1,
+.text-black h2,
+.text-black h3,
+.text-black p,
+.text-black div,
+.text-black span {
+  color: #000000 !important;
 }
 
 .website-text {
-  font-family: FreeMono, "courier new", monospace;
-  letter-spacing: 0.23px;
-  line-height: 1.1;
-  color: #ffffff;
-  font-size: 1.2em;
+  font-family: "courier new"; /* Exact match to old website - no monospace fallback */
+  letter-spacing: normal;
+  line-height: normal;
+  font-size: 16px !important; /* Same as old website */
+  color: #000000; /* Keep original black text */
+}
+
+/* White background pages - black text */
+.website-font.white-bg .website-text {
+  color: #000000;
 }
 
 .website-small {
-  font-family: FreeMono, "courier new", monospace;
-  letter-spacing: 0.23px;
-  line-height: 1.1;
-  color: #ffffff;
-  font-size: 1.1em;
+  font-family: "courier new"; /* Exact match to old website - no monospace fallback */
+  letter-spacing: normal;
+  line-height: normal;
+  color: #000000; /* Keep original black text */
+  font-size: 16px !important; /* Same as old website */
 }
 
-/* Legacy font sizes - keeping for compatibility but updating */
-.bigger {
-  font-family: FreeMono, "courier new", monospace;
-  color: #fff;
-  font-size: 1.8em;
-  line-height: 1.1;
+/* White background pages - black text */
+.website-font.white-bg .website-small {
+  color: #000000;
 }
 
-.big {
-  font-family: FreeMono, "courier new", monospace;
-  letter-spacing: 0.23px;
-  color: #fff;
-  font-size: 1.5em;
-  line-height: 1.1;
+/* White background pages - black header text */
+.website-font.white-bg .header-text {
+  color: #000000 !important;
 }
 
-.normal {
-  font-family: FreeMono, "courier new", monospace;
-  color: #fff;
-  font-size: 1.3em;
-  line-height: 1.1;
+.website-font.white-bg .header-text:hover {
+  color: #6b934b !important; /* Green hover */
 }
 
-.small {
-  font-family: FreeMono, "courier new", monospace;
-  color: #fff;
-  font-size: 1.2em;
-  line-height: 1.1;
-}
-
-.smaller {
-  font-family: FreeMono, "courier new", monospace;
-  color: #fff;
-  font-size: 1.1em;
-  line-height: 1.1;
-}
-
-/* Special spacing classes */
-.thinsp {
-  font-size: 0.5em;
-}
-
-.normsp {
-  font-size: 100%;
+/* Small text / Photo credits */
+small, .photo-credit, .credit,
+body small, body .photo-credit, body .credit,
+div small, div .photo-credit, div .credit,
+p small, p .photo-credit, p .credit,
+.website-font small, .website-font .photo-credit, .website-font .credit,
+.homepage small, .homepage .photo-credit, .homepage .credit,
+.white-bg small, .white-bg .photo-credit, .white-bg .credit,
+*[class*="credit"], *[class*="photographer"], *[class*="copyright"] {
+  font-size: 14px !important; /* Slightly smaller than body text */
+  color: #000000 !important; /* Keep original black text */
+  display: block !important;
+  margin-top: 0.25rem !important;
+  line-height: normal !important;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   body {
-    font-size: 14px;
-    line-height: 1.4;
+    font-size: 16px !important; /* Same as old website */
+    line-height: normal;
   }
   
   /* Ensure images are responsive */
@@ -152,41 +661,132 @@ a:hover {
     white-space: pre-wrap;
     word-wrap: break-word;
   }
+  
+  /* Mobile gallery improvements */
+  .grid {
+    gap: 0.75rem;
+  }
+  
+  /* Better mobile media display */
+  .media-display-container {
+    padding: 0.5rem;
+  }
+  
+  /* Mobile header spacing */
+  .max-w-7xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Mobile image responsiveness */
+  .media-display-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Mobile text spacing */
+  .website-text {
+    line-height: normal;
+  }
+  
+  /* Mobile title spacing */
+  .website-title {
+    font-size: 16px !important; /* Same as old website */
+    line-height: normal;
+  }
 }
 
 @media (max-width: 500px) {
   body {
     padding-left: 0px;
-    font-size: 13px;
+    font-size: 16px !important; /* Same as old website */
   }
 }
 
 @media (max-width: 360px) {
   body {
     padding-left: 0px;
-    font-size: 12px;
+    font-size: 16px !important; /* Same as old website */
   }
 }
 
 @media (max-width: 320px) {
   body {
     padding-left: 0px;
-    font-size: 11px;
+    font-size: 16px !important; /* Same as old website */
   }
 }
 
 @media (max-width: 296px) {
   body {
     padding-left: 0px;
-    font-size: 10px;
+    font-size: 16px !important; /* Same as old website */
   }
 }
 
 @media (max-width: 190px) {
   body {
     padding-left: 0px;
-    font-size: 9px;
+    font-size: 16px !important; /* Same as old website */
   }
+}
+
+/* NUCLEAR OPTION - Force header text to be white at the very end */
+header a[href="/"] {
+  color: #ffffff !important;
+}
+
+header a[href="/"] span {
+  color: #ffffff !important;
+}
+
+/* Override everything in header */
+header * {
+  color: #ffffff !important;
+}
+
+/* Force ALL titles to be bold/thick */
+h1, h2, h3, h4, h5, h6,
+.website-title, .main-page-title,
+.font-bold, .font-semibold,
+[class*="title"], [class*="heading"] {
+  font-weight: 700 !important; /* Bold/thick titles */
+}
+
+/* Force footer text to be white - override any conflicting styles */
+footer * {
+  color: #ffffff !important;
+}
+
+footer a {
+  color: #ffffff !important;
+}
+
+footer span {
+  color: #ffffff !important;
+}
+
+/* Second text section responsive width */
+.second-text-section {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (min-width: 1024px) {
+  .second-text-section {
+    width: 75% !important;
+    max-width: 75% !important;
+  }
+}
+
+/* Specific class for header logo link */
+.header-logo-link {
+  color: #ffffff !important;
+}
+
+.header-logo-link span {
+  color: #ffffff !important;
 }
 
 /* Hide scrollbar for thumbnail gallery */
@@ -198,156 +798,317 @@ a:hover {
   display: none;  /* Safari and Chrome */
 }
 
-/* Font variation classes for comparison */
-/* Variation 1: 20% bigger font size */
-.font-variation-1 .website-title {
-  font-size: 1.8em; /* was 1.5em */
-}
-.font-variation-1 .website-text {
-  font-size: 1.44em; /* was 1.2em */
-}
-.font-variation-1 .website-small {
-  font-size: 1.32em; /* was 1.1em */
+/* Gallery grid spacing fixes */
+.columns-1, .columns-2, .columns-3, .columns-4 {
+  column-gap: 2rem !important;
 }
 
-/* Variation 2: Bold/Thick text */
-.font-variation-2 .website-title {
-  font-weight: bold;
-}
-.font-variation-2 .website-text {
-  font-weight: bold;
-}
-.font-variation-2 .website-small {
-  font-weight: bold;
+.columns-1 > *, .columns-2 > *, .columns-3 > *, .columns-4 > * {
+  margin-bottom: 2rem !important;
+  break-inside: avoid;
 }
 
-/* Variation 3: Bigger AND bolder */
-.font-variation-3 .website-title {
-  font-size: 1.8em; /* was 1.5em */
-  font-weight: bold;
-}
-.font-variation-3 .website-text {
-  font-size: 1.44em; /* was 1.2em */
-  font-weight: bold;
-}
-.font-variation-3 .website-small {
-  font-size: 1.32em; /* was 1.1em */
-  font-weight: bold;
+/* Responsive gallery columns for choreographer page */
+.gallery-columns {
+  column-count: 1;
+  column-gap: 8px;
+  break-inside: avoid;
 }
 
-/* Variation 4: Wider letter spacing */
-.font-variation-4 .website-title {
-  letter-spacing: 1.5px; /* was 0.23px */
-}
-.font-variation-4 .website-text {
-  letter-spacing: 1.5px; /* was 0.23px */
-}
-.font-variation-4 .website-small {
-  letter-spacing: 1.5px; /* was 0.23px */
-}
-
-/* Media screen size variations */
-/* Default screen is 500px on desktop, this makes it bigger */
-.media-screen-bigger .media-display-container {
-  width: 100%;
-  max-width: 800px; /* was 500px */
-}
-
-/* Even bigger screen for extra large display */
-.media-screen-largest .media-display-container {
-  width: 100%;
-  max-width: 650px; /* was 500px */
+/* Mobile devices (up to 768px) - FORCE SINGLE COLUMN */
+@media (max-width: 768px) {
+  .gallery-columns {
+    column-count: 1 !important;
+    column-gap: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px;
+  }
+  
+  .gallery-columns > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 16px;
+    break-inside: avoid;
+  }
 }
 
-/* Different size for another variation */
-.media-screen-large .media-display-container {
-  width: 100%;
-  max-width: 900px; /* was 500px, for alihop */
+/* Tablet devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gallery-columns {
+    column-count: 2;
+    column-gap: 8px;
+    display: block;
+  }
 }
 
-/* Extra size variation for appointment */
-.media-screen-xlarge .media-display-container {
-  width: 100%;
-  max-width: 750px; /* for appointment on stage */
+/* Desktop devices (1025px - 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .gallery-columns {
+    column-count: 3;
+    column-gap: 8px;
+    display: block;
+  }
 }
 
-/* Additional screen size variations for comparison */
-.media-screen-small .media-display-container {
-  width: 100%;
-  max-width: 550px; /* +50px from default */
+/* Large desktop devices (1281px+) */
+@media (min-width: 1281px) {
+  .gallery-columns {
+    column-count: 5;
+    column-gap: 8px;
+    display: block;
+  }
 }
 
-.media-screen-medium .media-display-container {
-  width: 100%;
-  max-width: 600px; /* +100px from default */
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce motion for better performance on mobile */
+  .gallery-columns {
+    will-change: auto;
+  }
+  
+  /* Optimize image loading on mobile */
+  .gallery-columns img {
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Better scrolling performance */
+  .choreographer-page {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimize transitions for mobile */
+  .transition-all {
+    transition-duration: 0.2s;
+  }
+  
+  /* Ensure cards are full width on mobile */
+  .gallery-columns .bg-white {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 16px auto !important;
+  }
+  
+  /* Ensure proper spacing between cards */
+  .gallery-columns > * {
+    margin-bottom: 16px !important;
+  }
 }
 
-.media-screen-xl .media-display-container {
-  width: 100%;
-  max-width: 850px; /* +350px from default */
+/* Force mobile spacing for media gallery */
+@media (max-width: 767px) {
+  .relative.z-10.mt-40 {
+    margin-top: 160px !important;
+  }
 }
 
-.media-screen-xxl .media-display-container {
-  width: 100%;
-  max-width: 950px; /* +450px from default */
+/* Mobile title positioning for news-dates page */
+@media (max-width: 768px) {
+  .news-dates-page .pt-40 {
+    padding-top: 4rem !important; /* 64px instead of 160px - much higher */
+  }
+  
+  /* Ensure title stays green on mobile - multiple targeting approaches */
+  .news-dates-page h1.website-title,
+  .news-dates-page h1,
+  .news-dates-page .website-title,
+  .news-dates-page h1[style*="color: white"] {
+    color: #16a34a !important; /* green-600 */
+    -webkit-text-fill-color: #16a34a !important;
+    -webkit-text-stroke: none !important;
+  }
+  
+  /* Override any inline white color styles */
+  .news-dates-page h1[style*="color: white"] {
+    color: #16a34a !important;
+  }
+  
+  /* Force green color for all text in news-dates page on mobile */
+  .news-dates-page * {
+    color: #16a34a !important;
+  }
 }
 
-/* Page-specific background overlays */
-.page-bg-overlay {
-  position: relative;
+/* Force green color for news-dates page on ALL devices (PC/Desktop) */
+.news-dates-page h1.website-title,
+.news-dates-page h1,
+.news-dates-page .website-title,
+.news-dates-page h1[style*="color: white"] {
+  color: #16a34a !important; /* green-600 */
+  -webkit-text-fill-color: #16a34a !important;
+  -webkit-text-stroke: none !important;
 }
 
-.page-bg-overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Default 70% black overlay */
-  z-index: 0;
-  pointer-events: none;
+/* Override any inline white color styles on all devices */
+.news-dates-page h1[style*="color: white"] {
+  color: #16a34a !important;
 }
 
-/* Black and white filter with overlay */
-.page-bg-bw::before {
-  background-color: rgba(0, 0, 0, 0.75); /* 75% black overlay for B&W */
+/* Force green color for all text in news-dates page on all devices */
+.news-dates-page * {
+  color: #16a34a !important;
 }
 
-.page-bg-bw {
-  filter: grayscale(100%);
+/* Mobile title positioning for choreographer pages */
+@media (max-width: 768px) {
+  .choreographer-page .pt-20 {
+    padding-top: 6rem !important; /* 96px instead of 80px */
+  }
+  
+  /* Additional spacing for title section on mobile */
+  .choreographer-page .pt-20 > div {
+    margin-top: 1rem !important; /* Add extra 16px margin */
+  }
+  
+  /* General mobile title spacing for all choreographer pages */
+  .bg-black .pt-20 {
+    padding-top: 7rem !important; /* 112px total */
+  }
+  
+  .bg-black .pt-20 > div {
+    margin-top: 0.5rem !important; /* Add extra 8px margin */
+  }
 }
 
-/* Light overlay - 50% black */
-.page-bg-light-overlay::before {
-  background-color: rgba(0, 0, 0, 0.5);
+/* Force titles to align left ONLY on mobile devices */
+@media (max-width: 768px) {
+  .website-title,
+  .website-title *,
+  h1, h2, h3, h4, h5, h6,
+  .text-lg, .text-xl, .text-2xl, .text-3xl,
+  .font-bold, .font-semibold {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  /* Specific override for MediaGallerySeparated titles on mobile */
+  .relative.z-10 .mb-2,
+  .relative.z-10 .mb-3 {
+    margin-left: 0 !important;
+    text-align: left !important;
+  }
+
+  /* Override any centered titles on mobile */
+  .text-center {
+    text-align: left !important;
+  }
+  
+  /* Mobile-specific second text section positioning */
+  .second-text-section .website-text {
+    padding-left: 0.5rem !important;
+  }
+  
+  /* Make border lines slightly wider on mobile - minimal increase */
+  .border-b {
+    width: 96% !important; /* Slightly wider than desktop 92% */
+    margin-left: 2% !important; /* Minimal left margin on mobile */
+    margin-right: 2% !important; /* Minimal right margin on mobile */
+  }
+  
+  /* Specific override for MediaGallerySeparated border on mobile */
+  .relative.z-10 .border-b {
+    width: 96% !important; /* Slightly wider for main titles on mobile */
+    margin-left: 2% !important; /* Minimal left margin on mobile */
+    margin-right: 2% !important; /* Minimal right margin on mobile */
+  }
 }
 
-/* Medium overlay - 60% black */
-.page-bg-medium-overlay::before {
-  background-color: rgba(0, 0, 0, 0.6);
+/* Make logo-3.png smaller on mobile only */
+@media (max-width: 767px) {
+  img[src="/logo-3.png"] {
+    max-width: 60% !important;
+    max-height: 60% !important;
+    object-fit: contain !important;
+  }
 }
 
-/* Dark overlay - 80% black */
-.page-bg-dark-overlay::before {
-  background-color: rgba(0, 0, 0, 0.8);
+/* FORCE WHITE BACKGROUND FOR CARD TITLE AREAS */
+.white-title-area {
+  background-color: white !important;
+  color: black !important;
 }
 
-/* Ensure content stays above overlay */
-.page-bg-overlay > * {
-  position: relative;
-  z-index: 1;
+.white-title-area * {
+  color: black !important;
 }
 
-/* Video screen size variations for separated layout */
-.video-screen-large .w-full.max-w-3xl {
-  max-width: 60rem; /* 960px instead of 768px */
+.white-title-area a {
+  color: black !important;
 }
 
-.video-screen-xlarge .w-full.max-w-3xl {
-  max-width: 70rem; /* 1120px - very large */
+.white-title-area h2 {
+  color: black !important;
 }
 
-.video-screen-huge .w-full.max-w-3xl {
-  max-width: 80rem; /* 1280px - huge */
+.white-title-area strong {
+  color: black !important;
+}
+
+/* Force navigation arrow styles globally - override any conflicting styles */
+.absolute.-left-12 button,
+.absolute.-right-12 button,
+button[style*="fontSize: '2.5rem'"] {
+  font-size: 2.5rem !important;
+  color: #374151 !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+}
+
+.absolute.-left-12 button:hover,
+.absolute.-right-12 button:hover,
+button[style*="fontSize: '2.5rem'"]:hover {
+  color: #111827 !important;
+}
+
+/* Additional global overrides for navigation arrows */
+button[onclick*="handlePrevious"],
+button[onclick*="handleNext"],
+button[onclick*="handleModalPrevious"],
+button[onclick*="handleModalNext"],
+button[onclick*="handleVideoPrevious"],
+button[onclick*="handleVideoNext"] {
+  font-size: 2.5rem !important;
+  color: #374151 !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+}
+
+button[onclick*="handlePrevious"]:hover,
+button[onclick*="handleNext"]:hover,
+button[onclick*="handleModalPrevious"]:hover,
+button[onclick*="handleModalNext"]:hover,
+button[onclick*="handleVideoPrevious"]:hover,
+button[onclick*="handleVideoNext"]:hover {
+  color: #111827 !important;
+}
+
+/* Most aggressive override - target all navigation buttons */
+button:has(> *:only-child:is(‹, ›)) {
+  font-size: 2.5rem !important;
+  color: #374151 !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+}
+
+button:has(> *:only-child:is(‹, ›)):hover {
+  color: #111827 !important;
+}
+
+/* Fallback for browsers that don't support :has() */
+button[class*="-left-12"],
+button[class*="-right-12"] {
+  font-size: 2.5rem !important;
+  color: #374151 !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+}
+
+button[class*="-left-12"]:hover,
+button[class*="-right-12"]:hover {
+  color: #111827 !important;
 }

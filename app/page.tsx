@@ -1,278 +1,134 @@
 'use client';
 
-import Link from "next/link"
-import Header from "../components/Header"
-import { useState } from "react"
+import MediaGallerySeparated from "../components/MediaGallerySeparated";
+import Header from "../components/Header";
+import Link from "next/link";
+import { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
-  const [showArchive, setShowArchive] = useState(false);
-  const [showWorkshop, setShowWorkshop] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showFullBio, setShowFullBio] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  
+  useEffect(() => {
+    document.body.classList.add('homepage-new');
+    return () => {
+      document.body.classList.remove('homepage-new');
+    };
+  }, []);
 
-  const toggleArchive = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setShowArchive(!showArchive);
-      setShowWorkshop(false);
-      setIsTransitioning(false);
-    }, 300);
+  const bioMedia = [
+    {
+      src: "/bio_new.jpg",
+      alt: "Angela Lamprianidou",
+      type: "image" as const,
+      title: "Angela Lamprianidou"
+    }
+  ];
+
+  const shortDescription = `Angela Lamprianidou is a Greek choreographer, performer, producer, and body researcher with Spanish, German, and Indian roots. Her artistic language moves between dance, voice, energy, and anatomy — always grounded in presence, precision, and the unseen layers of human experience. She creates choreographic works that are not made to entertain, but to open space — for perception, for connection, for remembering what the body already knows.`;
+
+  const fullDescription = `Angela Lamprianidou is a Greek choreographer, performer, producer, and body researcher with Spanish, German, and Indian roots. Her artistic language moves between dance, voice, energy, and anatomy — always grounded in presence, precision, and the unseen layers of human experience. She creates choreographic works that are not made to entertain, but to open space — for perception, for connection, for remembering what the body already knows.
+Her journey began in Germany with early dance training under Henrike Guha, later continuing at the Eulàlia Blasi School in Barcelona. She went on to study choreography and new techniques of interpretation at the Institut del Teatre in Barcelona, where she received three Matrícula de Honor distinctions in Staging, Dance History, and Composition. At the same time, she completed a degree in Dentistry at the Friedrich-Alexander University in Erlangen — an unusual combination that still informs her somatic research today, particularly in the areas of neurophysiology, embodiment, and energetic release.
+Angela's piece "SIT" received the Dansa Mes a Prop Award and was selected as a finalist at the international choreography competition No Ballet. Her works are deeply physical yet energetically subtle, unfolding as contemplative landscapes rather than staged events. The audience is never positioned as passive viewers — they are part of the atmosphere, participants in a live field of resonance. She often works in non-institutional, intimate, or forgotten spaces, where the raw edges of time and place become part of the performance itself.
+Her creations have been presented across Europe, including at Mercat de les Flors, Antic Teatre, and the Teatre Nacional de Catalunya in Barcelona, Ponec Theatre in Prague, Tanzquartier Wien in Vienna, and Ballhaus Ost in Berlin. Angela lives and works between Athens and Berlin and continues to develop and share her work internationally. Wherever she goes, she brings not just performance, but a deep desire to enter into dialogue with the land, the people, and the invisible structures we all move within.
+As a producer, she curates her own projects from concept to realization, crafting spaces where art is not separate from life. Her workshops — offered both nationally and internationally — are themselves performances: immersive, physical, energetic spaces where bodies speak, remember, and shift. These gatherings go beyond teaching; they are happenings, fields of transformation, and real-time rituals of collective research.
+Angela has collaborated with artists such as Felix Ruckert, Roger Bernat, Tomeu Vergés, Caroline Brown, Santiago Sempere, and Iago Pericot. Her extended studies include Klein Technique with Barbara Mahler (USA), Feldenkrais Method, Energy Psychology with Astir Vlaminck (Germany), and yoga training at Shivashakti Yoga Barcelona. Since 2009, she has been researching the relationship between the jaw, the nervous system, and the body's energetic field — resulting in her own method of jaw and body release, which now flows into all aspects of her choreographic, performative, and teaching work.
+Her artistic world is not one of hierarchy, but of shared presence. She doesn't create to impress — she creates to connect, to disturb comfort zones, to return to what is essential. There is an urgency in her work, but also great care. She says: "I don't create to entertain. I create to connect — to open time, to move energy, to remind us of what the body already knows. I love to bring my art into your country — and meet you there."
+Reading her, watching her, moving with her — you feel that invitation. And you might just want to follow it.
+www.you-are-the-point.de`;
+
+  const additionalInfo = `For more information please contact her at angelabrillante@gmail.com`;
+
+  const handleReadMore = () => {
+    setIsAnimating(true);
+    setShowFullBio(true);
+    setIsAnimating(false);
   };
 
-  const toggleWorkshop = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setShowWorkshop(!showWorkshop);
-      setShowArchive(false);
-      setIsTransitioning(false);
-    }, 300);
+  const handleReadLess = () => {
+    setIsAnimating(true);
+    setShowFullBio(false);
+    setIsAnimating(false);
   };
+
+  const handleChoreographiesClick = () => {
+    router.push('/choreographer');
+  };
+
+  const handlePerformerClick = () => {
+    router.push('/choreographer');
+  };
+
+  const handleTeacherClick = () => {
+    router.push('/choreographer?showWorkshop=true');
+  };
+
   return (
     <div 
-      className="min-h-screen relative overflow-hidden bg-black text-white website-font"
+      className="min-h-screen relative"
+      style={{
+        backgroundImage: `url('/pure2 copy.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        minHeight: '100vh',
+        width: '100%',
+        backgroundClip: 'padding-box'
+      }}
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-no-repeat"
-        style={{
-          backgroundImage: `url('/homepage_background.jpg')`,
-          backgroundSize: '100% auto',
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'repeat-y',
-        }}
-      />
-
-      {/* Dynamic Header */}
-      <Header />
-
-      {/* Main Content */}
-      <div className="relative z-10 min-h-screen">
-        {/* Title Section */}
-        <div className="pt-32 pl-6 md:pl-24">
-          <div className="website-title mb-2">
-            <Link href="/contact" className="hover:text-green-400 transition-colors">
-              Choreographer&nbsp;&amp;&nbsp;Performer
-            </Link>
-            &nbsp;&amp;&nbsp;
-            <button 
-              onClick={toggleWorkshop}
-              className="hover:text-green-400 transition-colors cursor-pointer"
-            >
-              Teaching
-            </button>
-          </div>
+      <div className="absolute inset-0 bg-white/60 z-0"></div>
+      
+      <div className="relative z-10 min-h-screen text-black website-font angela-typography">
+        <Header />
+        
+        <div ref={contentRef}>
+          <MediaGallerySeparated
+            mediaItems={bioMedia}
+            title={
+              <div>
+                Angela Lamprianidou - 
+                <button 
+                  onClick={handleChoreographiesClick}
+                  className="hover:text-gray-600 transition-colors duration-200 cursor-pointer"
+                >
+                  Choreographies
+                </button>
+                <span> // </span>
+                <button 
+                  onClick={handlePerformerClick}
+                  className="hover:text-gray-600 transition-colors duration-200 cursor-pointer"
+                >
+                  Performer
+                </button>
+                <span> // </span>
+                <button 
+                  onClick={handleTeacherClick}
+                  className="hover:text-gray-600 transition-colors duration-200 cursor-pointer"
+                >
+                  Teacher
+                </button>
+              </div>
+            }
+            description={shortDescription}
+            additionalInfo={additionalInfo}
+            photographer="© photo Brieuc Le Meur"
+            textColor="black"
+            preserveBackground={true}
+            className={`bg-transparent transition-all duration-500 ease-in-out ${
+              isAnimating ? 'opacity-90' : 'opacity-100'
+            }`}
+            imageSize="xlarge"
+            isHomepage={true}
+            showFullBio={showFullBio}
+            setShowFullBio={setShowFullBio}
+          />
         </div>
-
-        {/* Main Content - Performance Links */}
-        <div className="mt-8 ml-6 md:ml-24 website-text relative">
-          {/* Current Performances */}
-          <div className={`transition-all duration-500 ease-in-out ${
-            showArchive || showWorkshop
-              ? 'opacity-0 transform translate-x-[-50px] pointer-events-none absolute top-0 left-0' 
-              : 'opacity-100 transform translate-x-0'
-          }`}>
-        <Link href="/Per4mer/BalletBloody" className="block hover:text-green-400 transition-colors">
-          Ballet for bloody beginners <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Med 60% | Font: +20% | Layout: ↓Vid→Img→Text | Screen: 550px (+50px)]</span>
-        </Link>
-            <Link href="/Per4mer/piece_peace" className="block hover:text-green-400 transition-colors">
-              Piece#Peace <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Dark 80% | Font: Bold | Layout: ↓Vid→Img→Text | Screen: 600px (+100px)]</span>
-            </Link>
-            <Link href="/Per4mer/SocialMovement" className="block hover:text-green-400 transition-colors">
-              Dance as a social movement <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Std 70% | Font: Big+Bold | Layout: ↓Img→Vid→Text | 900px (+400px)]</span>
-            </Link>
-            <Link href="/Per4mer/SITz" className="block hover:text-green-400 transition-colors">
-              SITz <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Med 60% | Font: Wide | Layout: ↓Img→Vid→Text | 850px (+350px)]</span>
-            </Link>
-            <Link href="/Per4mer/FromNOWtoNow" className="block hover:text-green-400 transition-colors">
-              From NOW to Now <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Light 50% | Font: +20% | Layout: ↓Vid→Img→Text | Screen: 650px (+150px)]</span>
-            </Link>
-            <Link href="/Per4mer/TanzhinTanzher" className="block hover:text-green-400 transition-colors">
-              Tanz hin Tanz her <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Light 50% | Font: Bold | Screen: 800px (+300px)]</span>
-            </Link>
-            <Link href="/Per4mer/AppointmentOnStage" className="block hover:text-green-400 transition-colors">
-              Appointment on stage <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Dark 80% | Font: Big+Bold | Layout: ↓Img→Vid→Text | 750px (+250px)]</span>
-            </Link>
-            <Link href="/Per4mer/alihop" className="block hover:text-green-400 transition-colors">
-              alihop <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Med 60% | Font: Wide | Layout: ↓Vid→Img→Text | 900px (+400px)]</span>
-            </Link>
-            <Link href="/Per4mer/Appointment2" className="block hover:text-green-400 transition-colors">
-              Appointment # 2 <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: B&W 75% | Font: +20% | Layout: ↓Img→Vid→Text | 750px (+250px)]</span>
-            </Link>
-            <Link href="/Per4mer/opaeuropa" className="block hover:text-green-400 transition-colors">
-              opa europa <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: B&W 75% | Font: Bold | Layout: ↓Vid→Img→Text | 600px (+100px)]</span>
-            </Link>
-            <Link href="/Per4mer/tongue" className="block hover:text-green-400 transition-colors">
-              tongue <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Med 60% | Font: Big+Bold | Screen: 550px (+50px)]</span>
-            </Link>
-            <Link href="/Per4mer/backtoemotion" className="block hover:text-green-400 transition-colors">
-              back to emotion <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Light 50% | Font: Wide | Layout: ↓Vid→Img→Text | Screen: 850px (+350px)]</span>
-            </Link>
-            <Link href="/Per4mer/thenote" className="block hover:text-green-400 transition-colors">
-              the note <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Dark 80% | Font: +20% | Screen: 600px (+100px)]</span>
-            </Link>
-            <Link href="/Per4mer/sit" className="block hover:text-green-400 transition-colors">
-              sit <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Std 70% | Font: Bold | Layout: ↓Vid→Img→Text | Img:650px Vid:1280px HUGE]</span>
-            </Link>
-            
-            {/* Workshop Button */}
-            <button 
-              onClick={toggleWorkshop}
-              className="hover:text-green-400 transition-colors cursor-pointer text-left"
-            >
-              {showWorkshop ? 'Back to Current' : 'Workshop'}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </button>
-            
-            <Link href="/homemotion" className="block hover:text-green-400 transition-colors">
-              Hom<span className="text-red-500 text-3xl font-medium">ε</span>motion <span className="bg-black/80 px-2 py-1 rounded text-yellow-400 text-base font-bold">→ [BG: Light 50% | Font: Big+Bold | Layout: ↓Img→Vid→Text | 950px (+450px)]</span>
-            </Link>
-
-            {/* Spacing for separation */}
-            <div className="h-8"></div>
-
-            {/* Enter Discipline Jaw Sessions - in Current view */}
-            <a 
-              href="http://you-are-the-point.de" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block hover:text-green-400 transition-colors"
-            >
-              Enter Discipline Jaw Sessions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </a>
-
-            {/* Archive Button - in Current view */}
-            <button 
-              onClick={toggleArchive}
-              className="hover:text-green-400 transition-colors cursor-pointer text-left block"
-            >
-              Archive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </button>
-          </div>
-
-          {/* Archive Items */}
-          <div className={`transition-all duration-500 ease-in-out ${
-            showArchive 
-              ? 'opacity-100 transform translate-x-0' 
-              : 'opacity-0 transform translate-x-[50px] pointer-events-none absolute top-0 left-0'
-          }`}>
-            <Link href="/archive/el-cuerpo-del-otro" className="block hover:text-green-400 transition-colors">
-              el cuerpo del otro
-            </Link>
-            <Link href="/archive/time" className="block hover:text-green-400 transition-colors">
-              time
-            </Link>
-            <Link href="/archive/loop" className="block hover:text-green-400 transition-colors">
-              loop
-            </Link>
-            <Link href="/archive/katharsi" className="block hover:text-green-400 transition-colors">
-              katharsi
-            </Link>
-            <Link href="/archive/shortcuts" className="block hover:text-green-400 transition-colors">
-              shortcuts
-            </Link>
-            <Link href="/archive/art-sit" className="block hover:text-green-400 transition-colors">
-              art sit
-            </Link>
-            <Link href="/archive/movie" className="block hover:text-green-400 transition-colors">
-              movie
-            </Link>
-
-            {/* Spacing for separation */}
-            <div className="h-8"></div>
-
-            {/* Enter Discipline Jaw Sessions - in Archive view */}
-            <a 
-              href="http://you-are-the-point.de" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block hover:text-green-400 transition-colors"
-            >
-              Enter Discipline Jaw Sessions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </a>
-
-            {/* Back to Current Button - in Archive view */}
-            <button 
-              onClick={toggleArchive}
-              className="hover:text-green-400 transition-colors cursor-pointer text-left block"
-            >
-              Back to Current&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </button>
-          </div>
-
-          {/* Workshop Items */}
-          <div className={`transition-all duration-500 ease-in-out ${
-            showWorkshop 
-              ? 'opacity-100 transform translate-x-0' 
-              : 'opacity-0 transform translate-x-[50px] pointer-events-none absolute top-0 left-0'
-          }`}>
-            <Link href="/workshop/jaw-release" className="block hover:text-green-400 transition-colors">
-              Jaw and Body Release
-            </Link>
-            <Link href="/workshop/raw-man-tick" className="block hover:text-green-400 transition-colors">
-              RAW-MAN-TICK
-            </Link>
-            <Link href="/workshop/you-are-point" className="block hover:text-green-400 transition-colors">
-              You are the point
-            </Link>
-            <Link href="/workshop/life-choreography" className="block hover:text-green-400 transition-colors">
-              Lifechoreography
-            </Link>
-            <Link href="/workshop/expansion" className="block hover:text-green-400 transition-colors">
-              Expansion and Explosion
-            </Link>
-            <Link href="/workshop/dance-news" className="block hover:text-green-400 transition-colors">
-              Dance News
-            </Link>
-            <Link href="/workshop/zeitgeist" className="block hover:text-green-400 transition-colors">
-              Gegen den Zeitgeist
-            </Link>
-            <Link href="/workshop/flipflop" className="block hover:text-green-400 transition-colors">
-              Flip Flop for everyone
-            </Link>
-            <Link href="/workshop/yoga" className="block hover:text-green-400 transition-colors">
-              Yoga - Composition - Dance
-            </Link>
-            <Link href="/workshop/composition" className="block hover:text-green-400 transition-colors">
-              Composition
-            </Link>
-            <Link href="/workshop/cia" className="block hover:text-green-400 transition-colors">
-              CIA
-            </Link>
-            <a 
-              href="/ReferenceWorkshops.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block hover:text-green-400 transition-colors"
-            >
-              Reference (PDF)
-            </a>
-            {/* Spacing for separation */}
-            <div className="h-8"></div>
-            
-            <a 
-              href="http://you-are-the-point.de" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block hover:text-green-400 transition-colors"
-            >
-              Enter Discipline Jaw Sessions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </a>
-            <button 
-              onClick={toggleArchive}
-              className="hover:text-green-400 transition-colors cursor-pointer text-left block"
-            >
-              Archive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </button>
-            <button 
-              onClick={toggleWorkshop}
-              className="hover:text-green-400 transition-colors cursor-pointer text-left block"
-            >
-              Back to Current&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </button>
-          </div>
-        </div>
-
-
+      
       </div>
-
     </div>
-  )
+  );
 }

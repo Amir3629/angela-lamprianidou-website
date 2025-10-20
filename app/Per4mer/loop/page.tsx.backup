@@ -1,0 +1,59 @@
+import MediaGallerySeparated from "../../../components/MediaGallerySeparated";
+import Header from "../../../components/Header";
+
+export default function LoopPage() {
+  const loopMedia = [
+    {
+      src: "/loop01.jpg",
+      alt: "Loop performance 1",
+      type: "image" as const,
+      title: "Loop Performance"
+    },
+    {
+      src: "/loop02.jpg",
+      alt: "Loop performance 2",
+      type: "image" as const,
+      title: "Loop Performance"
+    },
+    {
+      src: "/loop03.jpg",
+      alt: "Loop performance 3",
+      type: "image" as const,
+      title: "Loop Performance"
+    },
+    {
+      src: "/gallery/loop.jpg",
+      alt: "Loop performance 4",
+      type: "image" as const,
+      title: "Loop Performance"
+    }
+  ];
+
+  const description = `This work
+
+Loop pictures the vibrating gravity that surrounds us. The speed of contemporary life is transforming bodies into shaking spasmatic movements, as heard in Janis Christu's music, as to be seen in A.Lamprianidou's performance.`;
+
+  const additionalInfo = `We are in the 21st century and theatre has to become reality and not fiction. I wish that Loop, as it is created in a very plastic character and works as a picture due to her reiteration will penetrate with the critique it contains to the observer.
+
+That's why I wish Loop to get the opportunity to be performed in public areas, so people of all ages can be involved. And if even just a few will get the message and not only professionals, I will be delighted. As far as I'm concerned dance or art in general has a educational effect in life.
+
+Loop can also be presented in supermarkets or open public areas. As we know, dance for herself is a very abstract and ephemera art, I would like to dedicate my piece to all mankind, disregarding age or backgrounds and every in order to feel the motion.
+
+Production: 2005
+Choreography: Angela Lamprianidou
+Music: Janis Christu`;
+
+  return (
+    <div className="min-h-screen bg-white text-black website-font white-bg font-variation-1 media-screen-small angela-typography">
+      <Header />
+      <MediaGallerySeparated
+        mediaItems={loopMedia}
+        title="Loop"
+        description={description}
+        additionalInfo={additionalInfo}
+        photographer="© Photo by [Photographer Name]"
+        imageSize="xlarge"
+      />
+    </div>
+  );
+}
