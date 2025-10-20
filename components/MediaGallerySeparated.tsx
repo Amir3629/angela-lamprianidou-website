@@ -63,6 +63,7 @@ export default function MediaGallerySeparated({
   const [modalTouchEnd, setModalTouchEnd] = useState<number | null>(null);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [fadeOutLines, setFadeOutLines] = useState<number[]>([]);
+  const [currentScrollIndex, setCurrentScrollIndex] = useState(0);
 
   // Separate images and videos
   const allImages = mediaItems.filter(item => item.type === 'image');
@@ -115,6 +116,7 @@ export default function MediaGallerySeparated({
     );
     if (index !== -1) {
       setModalGalleryIndex(index);
+      setCurrentScrollIndex(index);
     }
     
     // Reset opening animation after a short delay
@@ -234,6 +236,21 @@ export default function MediaGallerySeparated({
     }
   };
 
+  // Handle scroll events to update indicator position
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const container = e.currentTarget;
+    const scrollLeft = container.scrollLeft;
+    const containerWidth = container.clientWidth;
+    const totalWidth = container.scrollWidth;
+    
+    // Calculate which image is currently in view
+    const totalImages = images.length + allGalleryImages.length;
+    const scrollProgress = scrollLeft / (totalWidth - containerWidth);
+    const newIndex = Math.round(scrollProgress * (totalImages - 1));
+    
+    setCurrentScrollIndex(Math.min(Math.max(newIndex, 0), totalImages - 1));
+  };
+
 
   // Gallery navigation in modal
   const handleModalPrevious = () => {
@@ -244,6 +261,7 @@ export default function MediaGallerySeparated({
     setTimeout(() => {
       const newIndex = modalGalleryIndex > 0 ? modalGalleryIndex - 1 : combinedGallery.length - 1;
       setModalGalleryIndex(newIndex);
+      setCurrentScrollIndex(newIndex);
       setModalMediaItem(combinedGallery[newIndex]);
       setIsModalImageChanging(false);
     }, 200);
@@ -257,6 +275,7 @@ export default function MediaGallerySeparated({
     setTimeout(() => {
       const newIndex = modalGalleryIndex < combinedGallery.length - 1 ? modalGalleryIndex + 1 : 0;
       setModalGalleryIndex(newIndex);
+      setCurrentScrollIndex(newIndex);
       setModalMediaItem(combinedGallery[newIndex]);
       setIsModalImageChanging(false);
     }, 200);
@@ -1163,6 +1182,7 @@ www.you-are-the-point.de`;
                     onTouchStart={handleModalTouchStart}
                     onTouchMove={handleModalTouchMove}
                     onTouchEnd={handleModalTouchEnd}
+                    onScroll={handleScroll}
                   >
                     {(images.length + allGalleryImages.length) > 0 && [...images, ...allGalleryImages].map((item, index) => (
                       <div
@@ -1189,7 +1209,7 @@ www.you-are-the-point.de`;
                           className="absolute top-0 left-0 h-full scroll-indicator-progress rounded-full transition-all duration-300 ease-out"
                           style={{
                             width: `${100 / (images.length + allGalleryImages.length)}%`,
-                            transform: `translateX(${modalGalleryIndex * (100 / (images.length + allGalleryImages.length))}%)`
+                            transform: `translateX(${currentScrollIndex * (100 / (images.length + allGalleryImages.length))}%)`
                           }}
                         />
                         {/* Left scroll hint */}
