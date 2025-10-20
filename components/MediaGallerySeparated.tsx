@@ -59,6 +59,8 @@ export default function MediaGallerySeparated({
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [modalTouchStart, setModalTouchStart] = useState<number | null>(null);
+  const [modalTouchEnd, setModalTouchEnd] = useState<number | null>(null);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [fadeOutLines, setFadeOutLines] = useState<number[]>([]);
 
@@ -204,6 +206,31 @@ export default function MediaGallerySeparated({
     }
     if (isRightSwipe && images.length > 1) {
       handlePrevious();
+    }
+  };
+
+  // Touch gesture handlers for mobile modal navigation
+  const handleModalTouchStart = (e: React.TouchEvent) => {
+    setModalTouchEnd(null);
+    setModalTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleModalTouchMove = (e: React.TouchEvent) => {
+    setModalTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleModalTouchEnd = () => {
+    if (!modalTouchStart || !modalTouchEnd) return;
+    
+    const distance = modalTouchStart - modalTouchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && (images.length + allGalleryImages.length) > 1) {
+      handleModalNext();
+    }
+    if (isRightSwipe && (images.length + allGalleryImages.length) > 1) {
+      handleModalPrevious();
     }
   };
 
@@ -396,6 +423,56 @@ export default function MediaGallerySeparated({
           color: #f3f4f6 !important;
           -webkit-text-fill-color: #f3f4f6 !important;
         }
+        
+        /* Mobile horizontal scroll styles */
+        @media (max-width: 767px) {
+          .mobile-horizontal-scroll {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+          }
+          
+          .mobile-horizontal-scroll::-webkit-scrollbar {
+            display: none;
+          }
+          
+          .mobile-horizontal-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+          
+          .mobile-scroll-item {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+          }
+          
+          /* Elegant scroll indicator styles */
+          .scroll-indicator {
+            background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
+            box-shadow: 
+              0 2px 8px rgba(0,0,0,0.3),
+              inset 0 1px 0 rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+          }
+          
+          .scroll-indicator-progress {
+            background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.9) 100%);
+            box-shadow: 
+              0 2px 4px rgba(0,0,0,0.4),
+              0 0 8px rgba(255,255,255,0.3),
+              inset 0 1px 0 rgba(255,255,255,0.5);
+          }
+          
+          .scroll-hint-arrow {
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+            transition: all 0.2s ease;
+          }
+          
+          .scroll-hint-arrow:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+          }
+        }
       `}</style>
       <div 
         className={`relative overflow-hidden text-${textColor} website-font ${className}`}
@@ -485,9 +562,9 @@ export default function MediaGallerySeparated({
                                 const startPosition = window.scrollY;
                                 const distance = offsetPosition - startPosition;
                                 const duration = 2000; // 2 seconds for very slow scroll
-                                let startTime = null;
+                                let startTime: number | null = null;
                                 
-                                function slowScroll(currentTime) {
+                                function slowScroll(currentTime: number) {
                                   if (startTime === null) startTime = currentTime;
                                   const timeElapsed = currentTime - startTime;
                                   const progress = Math.min(timeElapsed / duration, 1);
@@ -538,9 +615,9 @@ www.you-are-the-point.de`;
                               const targetPosition = 0; // Top of the page
                               const distance = targetPosition - startPosition;
                               const duration = 2000; // 2 seconds for very slow scroll
-                              let startTime = null;
+                              let startTime: number | null = null;
                               
-                              function slowScrollToTop(currentTime) {
+                              function slowScrollToTop(currentTime: number) {
                                 if (startTime === null) startTime = currentTime;
                                 const timeElapsed = currentTime - startTime;
                                 const progress = Math.min(timeElapsed / duration, 1);
@@ -1054,31 +1131,78 @@ www.you-are-the-point.de`;
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-              <button
-                onClick={closeModal}
-                className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-10 text-white text-3xl sm:text-4xl transition-all duration-300 hover:scale-110 touch-target"
-                style={{
-                  textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
-                  fontWeight: '300',
-                  color: '#ffffff !important',
-                  WebkitTextFillColor: '#ffffff',
-                  WebkitTextStroke: 'none'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#f3f4f6 !important';
-                  (e.currentTarget.style as any).webkitTextFillColor = '#f3f4f6';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#ffffff !important';
-                  (e.currentTarget.style as any).webkitTextFillColor = '#ffffff';
-                }}
-              >
-                ×
-              </button>
-            
-            <div className="relative">
-              {modalMediaItem.type === 'image' ? (
-                <div className="relative group">
+            <button
+              onClick={closeModal}
+              className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-10 text-white text-3xl sm:text-4xl transition-all duration-300 hover:scale-110 touch-target"
+              style={{
+                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                fontWeight: '300',
+                color: '#ffffff !important',
+                WebkitTextFillColor: '#ffffff',
+                WebkitTextStroke: 'none'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#f3f4f6 !important';
+                (e.currentTarget.style as any).webkitTextFillColor = '#f3f4f6';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#ffffff !important';
+                (e.currentTarget.style as any).webkitTextFillColor = '#ffffff';
+              }}
+            >
+              ×
+            </button>
+          
+          <div className="relative">
+            {modalMediaItem.type === 'image' ? (
+              <div className="relative group">
+                {/* Mobile: Horizontal scroll layout */}
+                <div className="md:hidden">
+                  <div 
+                    className="flex overflow-x-auto gap-4 pb-4 mobile-horizontal-scroll"
+                    onTouchStart={handleModalTouchStart}
+                    onTouchMove={handleModalTouchMove}
+                    onTouchEnd={handleModalTouchEnd}
+                  >
+                    {(images.length + allGalleryImages.length) > 0 && [...images, ...allGalleryImages].map((item, index) => (
+                      <div
+                        key={index}
+                        className="flex-shrink-0 w-full h-[70vh] flex items-center justify-center mobile-scroll-item"
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          width={800}
+                          height={600}
+                          className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                          sizes="100vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Mobile scroll indicator */}
+                  {(images.length + allGalleryImages.length) > 1 && (
+                    <div className="flex justify-center mt-6">
+                      <div className="relative w-40 h-2 scroll-indicator rounded-full overflow-hidden">
+                        <div 
+                          className="absolute top-0 left-0 h-full scroll-indicator-progress rounded-full transition-all duration-300 ease-out"
+                          style={{
+                            width: `${100 / (images.length + allGalleryImages.length)}%`,
+                            transform: `translateX(${modalGalleryIndex * (100 / (images.length + allGalleryImages.length))}%)`
+                          }}
+                        />
+                        {/* Left scroll hint */}
+                        <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-0 h-0 border-t-3 border-b-3 border-r-3 border-transparent border-r-white/70 scroll-hint-arrow" />
+                        {/* Right scroll hint */}
+                        <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-0 h-0 border-t-3 border-b-3 border-l-3 border-transparent border-l-white/70 scroll-hint-arrow" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Desktop: Single image with navigation */}
+                <div className="hidden md:block">
                   <Image
                     src={modalMediaItem.src}
                     alt={modalMediaItem.alt}
@@ -1090,7 +1214,7 @@ www.you-are-the-point.de`;
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
                   />
                   
-                  {/* Gallery Navigation */}
+                  {/* Gallery Navigation - Desktop only */}
                   {(images.length + allGalleryImages.length) > 1 && (
                     <>
                        <button
@@ -1098,7 +1222,7 @@ www.you-are-the-point.de`;
                            e.stopPropagation();
                            handleModalPrevious();
                          }}
-                         className={`hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 touch-target ${
+                         className={`absolute -left-12 top-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 touch-target ${
                            isModalImageChanging ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
                          }`}
                          style={{
@@ -1122,7 +1246,7 @@ www.you-are-the-point.de`;
                            e.stopPropagation();
                            handleModalNext();
                          }}
-                         className={`hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 touch-target ${
+                         className={`absolute -right-12 top-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 touch-target ${
                            isModalImageChanging ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
                          }`}
                          style={{
@@ -1142,7 +1266,7 @@ www.you-are-the-point.de`;
                          ›
                        </button>
                       
-                      {/* Gallery Counter */}
+                      {/* Gallery Counter - Desktop only */}
                       <div className={`absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-black/50 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-all duration-300 ${
                         isModalImageChanging ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
                       }`}>
@@ -1151,27 +1275,28 @@ www.you-are-the-point.de`;
                     </>
                   )}
                 </div>
-              ) : modalMediaItem.src.includes('vimeo.com') ? (
-                <iframe
-                  src={`https://player.vimeo.com/video/${modalMediaItem.src.split('/').pop()}?autoplay=1&loop=0&muted=0&controls=1`}
-                  className="max-w-full max-h-[70vh] sm:max-h-[80vh] rounded-lg shadow-2xl"
-                  style={{ width: '100%', height: 'auto', aspectRatio: '16/9' }}
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <video
-                  src={modalMediaItem.src}
-                  className="max-w-full max-h-[80vh] rounded-lg shadow-2xl"
-                  controls
-                  autoPlay
-                />
-              )}
-            </div>
+              </div>
+            ) : modalMediaItem.src.includes('vimeo.com') ? (
+              <iframe
+                src={`https://player.vimeo.com/video/${modalMediaItem.src.split('/').pop()}?autoplay=1&loop=0&muted=0&controls=1`}
+                className="max-w-full max-h-[70vh] sm:max-h-[80vh] rounded-lg shadow-2xl"
+                style={{ width: '100%', height: 'auto', aspectRatio: '16/9' }}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video
+                src={modalMediaItem.src}
+                className="max-w-full max-h-[80vh] rounded-lg shadow-2xl"
+                controls
+                autoPlay
+              />
+            )}
           </div>
         </div>
-      )}
+      </div>
+    )}
     </div>
     </>
   );
