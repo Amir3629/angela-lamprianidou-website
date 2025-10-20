@@ -245,8 +245,20 @@ export default function MediaGallerySeparated({
     
     // Calculate which image is currently in view
     const totalImages = images.length + allGalleryImages.length;
-    const scrollProgress = scrollLeft / (totalWidth - containerWidth);
+    
+    // For proper movement calculation
+    if (totalImages <= 1) {
+      setCurrentScrollIndex(0);
+      return;
+    }
+    
+    // Calculate scroll progress (0 to 1)
+    const maxScroll = totalWidth - containerWidth;
+    const scrollProgress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+    
+    // Map to image index (0 to totalImages-1)
     const newIndex = Math.round(scrollProgress * (totalImages - 1));
+    
     
     setCurrentScrollIndex(Math.min(Math.max(newIndex, 0), totalImages - 1));
   };
@@ -1204,12 +1216,17 @@ www.you-are-the-point.de`;
                   {/* Mobile scroll indicator */}
                   {(images.length + allGalleryImages.length) > 1 && (
                     <div className="flex justify-center mt-6">
-                      <div className="relative w-40 h-2 scroll-indicator rounded-full overflow-hidden">
+                      <div 
+                        className="relative h-2 scroll-indicator rounded-full overflow-hidden"
+                        style={{
+                          width: `${Math.min(60 + (images.length + allGalleryImages.length) * 12, 160)}px`
+                        }}
+                      >
                         <div 
                           className="absolute top-0 left-0 h-full scroll-indicator-progress rounded-full transition-all duration-300 ease-out"
                           style={{
-                            width: `${100 / (images.length + allGalleryImages.length)}%`,
-                            transform: `translateX(${currentScrollIndex * (100 / (images.length + allGalleryImages.length))}%)`
+                            width: `${Math.max(40, 100 / (images.length + allGalleryImages.length))}%`,
+                            transform: `translateX(${currentScrollIndex * (100 - Math.max(40, 100 / (images.length + allGalleryImages.length)))}%)`
                           }}
                         />
                         {/* Left scroll hint */}
